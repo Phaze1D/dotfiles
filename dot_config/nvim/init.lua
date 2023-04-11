@@ -1,5 +1,4 @@
 local Plug = require('plug')
-
 Plug.begin('~/.config/nvim/plugged')
 
 Plug('folke/tokyonight.nvim', { branch = 'main' })
@@ -15,5 +14,19 @@ Plug('hrsh7th/nvim-cmp')
 Plug('nvim-lua/plenary.nvim')
 Plug('nvim-telescope/telescope.nvim', { tag = '0.1.1' })
 Plug('glepnir/dashboard-nvim')
+Plug('max397574/better-escape.nvim')
+Plug('kyazdani42/nvim-tree.lua')
+Plug('christoomey/vim-tmux-navigator')
+Plug('akinsho/bufferline.nvim', { tag = 'v3.*' })
 
 Plug.ends()
+
+vim.cmd('colorscheme tokyonight')
+
+require('keymaps')
+require('plugins/better-escape')
+require('plugins/hop')
+require('plugins/lualine')
+require('plugins/nvim-tree')
+require('plugins/telescope')
+require('plugins/bufferline')
