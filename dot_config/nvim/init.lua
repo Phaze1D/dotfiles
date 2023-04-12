@@ -21,7 +21,7 @@ Plug('akinsho/bufferline.nvim', { tag = 'v3.*' })
 
 Plug.ends()
 
-vim.cmd('colorscheme tokyonight')
+vim.cmd('colorscheme tokyonight-storm')
 
 require('keymaps')
 require('plugins/better-escape')
