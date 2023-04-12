@@ -10,6 +10,12 @@ require("bufferline").setup({
       }
     },
   },
+  highlights = {
+    fill = {
+      fg = '#1f2232',
+      bg = '#1f2232'
+    }
+  }
 })
 
 local opts = { noremap = true }

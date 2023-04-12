@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
-vim.opt.number = true
+vim.o.number = true
+vim.opt.clipboard:append('unnamedplus')
 
 local opts = { noremap = true }
 vim.keymap.set('n', '<Space>', '<Nop>', opts)
