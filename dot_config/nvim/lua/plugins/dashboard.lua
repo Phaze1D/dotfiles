@@ -3,6 +3,5 @@ require('dashboard').setup({
   config = {
 
   }
-
 })
 
