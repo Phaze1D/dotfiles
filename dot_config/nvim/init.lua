@@ -26,6 +26,7 @@ Plug('christoomey/vim-tmux-navigator')
 Plug('TimUntersberger/neogit')
 Plug('akinsho/bufferline.nvim', { tag = 'v3.*' })
 Plug('karb94/neoscroll.nvim')
+Plug('iamcco/markdown-preview.nvim', { run = 'cd app && yarn install' })
 
 Plug.ends()
 
