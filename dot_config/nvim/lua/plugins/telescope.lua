@@ -9,7 +9,7 @@ require('telescope').setup({
     }
   },
   defaults = {
-	file_ignore_patterns = {"node_modules"},
+    file_ignore_patterns = {"node_modules"},
     sorting_strategy = "ascending",
     layout_strategy = "vertical",
     layout_config = {
