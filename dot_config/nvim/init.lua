@@ -24,7 +24,7 @@ Plug('max397574/better-escape.nvim')
 Plug('kyazdani42/nvim-tree.lua')
 Plug('christoomey/vim-tmux-navigator')
 Plug('TimUntersberger/neogit')
-Plug('akinsho/bufferline.nvim', { tag = 'v3.*' })
+Plug('akinsho/bufferline.nvim', { tag = '*' })
 Plug('karb94/neoscroll.nvim')
 Plug('iamcco/markdown-preview.nvim', { run = 'cd app && yarn install' })
 
