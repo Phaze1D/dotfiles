@@ -7,7 +7,7 @@ lsp.on_attach(function(client, bufnr)
   })
 end)
 
-lspconfig.tsserver.setup({})
+lspconfig.ts_ls.setup({})
 lspconfig.dockerls.setup({})
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 lspconfig.graphql.setup({
