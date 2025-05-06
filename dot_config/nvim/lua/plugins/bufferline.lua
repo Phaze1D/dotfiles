@@ -15,4 +15,3 @@ require("bufferline").setup({
 local opts = { noremap = true }
 vim.keymap.set('n', '<TAB>', ':BufferLineCycleNext<CR>', opts)
 vim.keymap.set('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', opts)
-vim.keymap.set('n', 'db', ':BufferLinePickClose<CR>', opts)
