@@ -27,6 +27,8 @@ Plug('TimUntersberger/neogit')
 Plug('akinsho/bufferline.nvim', { tag = '*' })
 Plug('karb94/neoscroll.nvim')
 Plug('iamcco/markdown-preview.nvim', { run = 'cd app && yarn install' })
+Plug('stevearc/dressing.nvim')
+Plug('nvim-flutter/flutter-tools.nvim')
 
 Plug.ends()
 
