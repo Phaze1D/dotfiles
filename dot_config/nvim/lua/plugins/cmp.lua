@@ -1,5 +1,4 @@
 local cmp = require('cmp')
-require('lsp-zero').cmp_action()
 
 local has_words_before = function()
     unpack = unpack or table.unpack
