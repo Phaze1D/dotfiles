@@ -7,11 +7,6 @@ require('telescope').setup({
       case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
                                        -- the default case_mode is "smart_case"
     },
-    ["ui-select"] = {
-      require("telescope.themes").get_dropdown {
-        -- even more opts
-      }
-     }
   },
   defaults = {
     file_ignore_patterns = {"node_modules"},
@@ -34,7 +29,6 @@ require('telescope').setup({
 })
 require("telescope").load_extension("flutter")
 require("telescope").load_extension("fzf")
-require("telescope").load_extension("ui-select")
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
