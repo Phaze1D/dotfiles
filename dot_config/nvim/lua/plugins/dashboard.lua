@@ -1,35 +1,37 @@
+local config_path = vim.fn.stdpath('config')
+local header_path = config_path .. '/lua/header.txt'
+
 require('dashboard').setup({
-  theme = 'doom',
+
+  theme = 'hyper',
+  preview = {
+    command = 'lolcat',
+    file_path = header_path,
+    file_height = 22,
+    file_width = 50,
+  },
   config = {
-    header = {
-      "",
-      " ██████╗ ██╗   ██╗██╗███╗   ██╗ ██████╗ ",
-      " ██╔═══██╗██║   ██║██║████╗  ██║██╔═══██╗",
-      " ██║   ██║██║   ██║██║██╔██╗ ██║██║   ██║",
-      " ██║   ██║██║   ██║██║██║╚████╔╝██║   ██║",
-      " ╚██████╔╝╚██████╔╝██║██║ ╚═══╝ ╚██████╔╝",
-      "  ╚═════╝  ╚═════╝ ╚═╝╚═╝        ╚═════╝ ",
-    },
-    center = {
+    shortcut = {
       {
-        icon = '  ',
-        desc = 'Recently latest session                   ',
-        action = 'SessionLoad',
-        shortcut = 'SPC s l'
+        desc = '󰊳 Update',
+        group = '@property',
+        action = 'PlugUpdate',
+        key = 'u',
       },
       {
-        icon = '  ',
-        desc = 'Recently opened files                    ',
-        action = 'Telescope oldfiles',
-        shortcut = 'SPC f o'
-      },
-      {
-        icon = '  ',
-        desc = 'Find file                                ',
+        icon = ' ',
+        icon_hl = '@variable',
+        desc = 'Files',
+        group = 'Label',
         action = 'Telescope find_files',
-        shortcut = 'SPC f f'
+        key = 'f',
+      },
+      {
+        desc = ' Git Files',
+        group = 'DiagnosticHint',
+        action = 'Telescope git_files',
+        key = 'a',
       },
     },
-    footer = { 'Get to it' },
   }
 })
