@@ -14,3 +14,9 @@ require("flutter-tools").setup({
     }
   },
 })
+
+-- Add keybinding for FlutterLogToggle
+vim.keymap.set('n', '<leader>lf', '<cmd>FlutterLogToggle<CR>', {
+  desc = "Toggle Flutter logs",
+  silent = true
+})

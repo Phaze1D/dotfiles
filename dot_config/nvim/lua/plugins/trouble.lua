@@ -1,4 +1,5 @@
 require('trouble').setup({
+  auto_preview = false,
   modes = {
     errors_diao = {
       mode = 'diagnostics',
