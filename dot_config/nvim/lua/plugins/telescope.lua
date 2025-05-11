@@ -1,10 +1,5 @@
 require('telescope').setup({
   extensions = {
-    ["ui-select"] = {
-      require("telescope.themes").get_dropdown {
-        -- even more opts
-      },
-    },
     fzf = {
       fuzzy = false,                  -- false will only do exact matching
       override_generic_sorter = true, -- override the generic sorter
@@ -34,7 +29,6 @@ require('telescope').setup({
 })
 require("telescope").load_extension("flutter")
 require("telescope").load_extension("fzf")
-require("telescope").load_extension("ui-select")
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
