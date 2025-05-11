@@ -2,7 +2,6 @@ local config_path = vim.fn.stdpath('config')
 local header_path = config_path .. '/lua/header.txt'
 
 require('dashboard').setup({
-
   theme = 'hyper',
   preview = {
     command = 'lolcat',
@@ -11,6 +10,7 @@ require('dashboard').setup({
     file_width = 50,
   },
   config = {
+    packages = { enable = false },
     shortcut = {
       {
         desc = '󰊳 Update',
@@ -19,7 +19,7 @@ require('dashboard').setup({
         key = 'u',
       },
       {
-        icon = ' ',
+        icon = '󰈙 ',
         icon_hl = '@variable',
         desc = 'Files',
         group = 'Label',
@@ -27,11 +27,25 @@ require('dashboard').setup({
         key = 'f',
       },
       {
-        desc = ' Git Files',
-        group = 'DiagnosticHint',
+        icon = '󰊢 ',
+        icon_hl = '@variable',
+        desc = 'Git Files',
+        group = 'Label',
         action = 'Telescope git_files',
         key = 'a',
       },
+      {
+        icon = '󰩈 ',
+        icon_hl = '@variable',
+        desc = 'Quit',
+        group = '@property',
+        action = 'quit',
+        key = 'q',
+      },
     },
+    footer = {
+      '',
+      ' 🚀 Get To It.',
+    }
   }
 })
