@@ -4,7 +4,7 @@ require("codecompanion").setup({
       return require("codecompanion.adapters").extend("copilot", {
         schema = {
           model = {
-            default = "claude-3.7-sonnet",
+            default = "claude-3.7-sonnet-thought",
           },
         },
       })
