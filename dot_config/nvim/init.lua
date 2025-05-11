@@ -31,6 +31,7 @@ Plug('rcarriga/nvim-notify')
 Plug('olimorris/codecompanion.nvim')
 Plug('nvim-lualine/lualine.nvim')
 Plug('nvim-flutter/flutter-tools.nvim')
+Plug('folke/snacks.nvim')
 
 Plug.ends()
 
@@ -56,3 +57,4 @@ require('plugins.cmp')
 require('plugins.dashboard')
 require('plugins.lualine')
 require('plugins.notify')
+require('plugins.snacks')
