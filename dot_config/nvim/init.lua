@@ -34,6 +34,7 @@ Plug('nvim-lualine/lualine.nvim')
 Plug('nvim-flutter/flutter-tools.nvim')
 Plug('folke/snacks.nvim')
 Plug('sindrets/diffview.nvim')
+Plug('numToStr/Comment.nvim')
 
 Plug.ends()
 
