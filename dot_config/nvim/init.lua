@@ -1,6 +1,6 @@
 local Plug = require('plug')
 Plug.begin('~/.config/nvim/plugged')
-
+-- testings some
 Plug('folke/tokyonight.nvim', { branch = 'main' })
 Plug('nvim-lua/plenary.nvim')
 Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
