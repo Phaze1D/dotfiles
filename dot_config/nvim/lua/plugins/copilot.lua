@@ -23,5 +23,6 @@ vim.keymap.set({ "n", "v" }, "<leader>ai", "<cmd>CodeCompanionChat Toggle<cr>", 
 })
 
 vim.cmd([[cab cc CodeCompanion]])
+vim.cmd([[cab cm CodeCompanion #buffer /commit]])
 
 vim.g.copilot_no_tab_map = true
