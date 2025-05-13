@@ -1,4 +1,7 @@
 vim.notify = require("notify")
+vim.notify.setup({
+  timeout = 2000,
+})
 
 -- Setup notifications for CodeCompanion events
 local notification_id = nil
