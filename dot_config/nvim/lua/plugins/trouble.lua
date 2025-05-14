@@ -4,7 +4,6 @@ require('trouble').setup({
     errors_diao = {
       mode = 'diagnostics',
       filter = {
-        buf = 0,
         severity = vim.diagnostic.severity.ERROR
       },
     },
