@@ -1,9 +1,5 @@
-vim.notify = require("notify")
-vim.notify.setup({
-  timeout = 2000,
-})
-
--- Setup notifications for CodeCompanion events
+local Snacks = require("snacks")
+-- Setup notifications for CohdeCompanion events
 local notification_id = nil
 local spinner_symbols = {
   "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏",
@@ -31,13 +27,13 @@ local function setup_codecompanion_notifications()
           local spinner = spinner_symbols[spinner_index]
 
           -- Create or update notification
-          notification_id = vim.notify(
+          notification_id = Snacks.notifier.notify(
             "Processing request... " .. spinner,
             vim.log.levels.INFO,
             {
               title = "CodeCompanion",
-              icon = "",
-              replace = notification_id
+              icon = " ",
+              id = notification_id,
             }
           )
         end))
@@ -49,20 +45,20 @@ local function setup_codecompanion_notifications()
         end
 
         -- Show completion notification and clear after a delay
-        notification_id = vim.notify(
+        notification_id = Snacks.notifier.notify(
           "Request completed!",
           vim.log.levels.INFO,
           {
             title = "CodeCompanion",
             icon = "✓",
-            replace = notification_id
+            id = notification_id,
           }
         )
 
         -- Clear the completion notification after a short delay
         vim.defer_fn(function()
           if notification_id then
-            vim.notify.dismiss(notification_id)
+            Snacks.notifier.hide(notification_id)
             notification_id = nil
           end
         end, 1000)
