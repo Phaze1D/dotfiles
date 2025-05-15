@@ -1,4 +1,5 @@
 local config_path = vim.fn.stdpath('config')
+local Snacks = require('snacks')
 local header_path = config_path .. '/lua/header.txt'
 
 require('dashboard').setup({
@@ -23,7 +24,7 @@ require('dashboard').setup({
         icon_hl = '@variable',
         desc = 'Files',
         group = 'Label',
-        action = 'Telescope find_files',
+        action = Snacks.picker.smart,
         key = 'f',
       },
       {
@@ -31,7 +32,7 @@ require('dashboard').setup({
         icon_hl = '@variable',
         desc = 'Git Files',
         group = 'Label',
-        action = 'Telescope git_files',
+        action = Snacks.picker.git_files,
         key = 'a',
       },
       {
