@@ -1,7 +1,7 @@
 local config_path = vim.fn.stdpath('config')
 local header_path = config_path .. '/lua/header.txt'
 
-local width = 49
+local width = 45
 
 return {
   preset = {
@@ -14,6 +14,8 @@ return {
       cmd = "lolcat " .. header_path,
       height = 22,
       width = 47,
+      indent = 1,
+      padding = 1,
     },
     {
       section = "keys",
@@ -47,7 +49,7 @@ return {
       },
       {
         text = {
-          { " ", hl = "SnacksDashboardIcon" },
+          { "  ", hl = "SnacksDashboardIcon" },
           {
             "Recent Files",
             hl = "SnacksDashboardDesc",
@@ -60,7 +62,7 @@ return {
       },
       {
         text = {
-          { " ", hl = "SnacksDashboardIcon" },
+          { "  ", hl = "SnacksDashboardIcon" },
           {
             "Sessions",
             hl = "SnacksDashboardDesc",
@@ -71,9 +73,33 @@ return {
         action = function() require("persistence").select() end,
         key = 's',
       },
-
-      -- { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
-      -- { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+      {
+        text = {
+          { "󰒲  ", hl = "SnacksDashboardIcon" },
+          {
+            "Lazy",
+            hl = "SnacksDashboardDesc",
+            width = width
+          },
+          { "[L]", hl = "SnacksDashboardKey" },
+        },
+        action = ":Lazy",
+        key = 'L',
+        enabled = package.loaded.lazy ~= nil,
+      },
+      {
+        text = {
+          { "  ", hl = "SnacksDashboardIcon" },
+          {
+            "Quit",
+            hl = "SnacksDashboardDesc",
+            width = width
+          },
+          { "[q]", hl = "SnacksDashboardKey" },
+        },
+        action = ":qa",
+        key = 'q',
+      },
     },
     -- { section = "startup" },
   },
