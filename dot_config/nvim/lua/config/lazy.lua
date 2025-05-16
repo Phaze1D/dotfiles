@@ -24,20 +24,20 @@ vim.opt.clipboard:append('unnamedplus')
 vim.opt.number = true
 vim.opt.splitright = true
 vim.opt.termguicolors = true
-local o = vim.o
+vim.opt.signcolumn = 'yes'
 
+local o = vim.o
 o.expandtab = true
 o.smartindent = true
 o.tabstop = 2
 o.shiftwidth = 2
 
-local opts = { noremap = true }
-vim.keymap.set('n', '<Space>', '<Nop>', opts)
-vim.keymap.set('i', '<C-k>', '<C-o>gk', opts)
-vim.keymap.set('i', '<C-h>', '<Left>', opts)
-vim.keymap.set('i', '<C-l>', '<Right>', opts)
-vim.keymap.set('i', '<C-j>', '<C-o>gj', opts)
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', opts)
+vim.keymap.set('n', '<Space>', '<Nop>', { noremap = true, desc = "Disable space" })
+vim.keymap.set('i', '<C-k>', '<C-o>gk', { noremap = true, desc = "Move cursor up" })
+vim.keymap.set('i', '<C-h>', '<Left>', { noremap = true, desc = "Move cursor left" })
+vim.keymap.set('i', '<C-l>', '<Right>', { noremap = true, desc = "Move cursor right" })
+vim.keymap.set('i', '<C-j>', '<C-o>gj', { noremap = true, desc = "Move cursor down" })
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, desc = "Exit terminal mode" })
 
 
 -- Setup lazy.nvim

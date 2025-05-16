@@ -1,1 +1,4 @@
-require('neoscroll').setup({})
+return {
+  "karb94/neoscroll.nvim",
+  opts = {},
+}

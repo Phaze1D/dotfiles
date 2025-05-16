@@ -1,19 +1,24 @@
-vim.opt.termguicolors = true
-require("bufferline").setup({
-  options = {
-    offsets = {
-      {
-        filetype = "NvimTree",
-        text = "File Explorer",
-        text_align = "center",
-        separator = true,
+return {
+  "akinsho/bufferline.nvim",
+  event = { "BufNewFile", "BufReadPost" },
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+  },
+  opts = {
+    options = {
+      offsets = {
+        {
+          filetype = 'snacks_layout_box',
+          text = '󰙅  File Explorer',
+          separator = true,
+        }
       }
     },
   },
-})
-
-local opts = { noremap = true }
-vim.keymap.set('n', '<TAB>', ':BufferLineCycleNext<CR>', opts)
-vim.keymap.set('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', opts)
-vim.keymap.set('n', '<leader>bp', ':BufferLinePick<CR>', opts)
-vim.keymap.set('n', '<leader>bd', ':bd<CR>', opts)
+  keys = {
+    { "<TAB>",      ":BufferLineCycleNext<CR>", desc = "Next buffer" },
+    { "<S-Tab>",    ":BufferLineCyclePrev<CR>", desc = "Previous buffer" },
+    { "<leader>bp", ":BufferLinePick<CR>",      desc = "Pick buffer" },
+    { "<leader>bd", ":bd<CR>",                  desc = "Delete buffer" },
+  }
+}
