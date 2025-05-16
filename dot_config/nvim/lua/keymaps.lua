@@ -1,3 +1,4 @@
+-- Lazy Checked
 vim.g.mapleader = " "
 vim.opt.clipboard:append('unnamedplus')
 vim.opt.number = true
