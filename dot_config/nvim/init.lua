@@ -32,7 +32,6 @@ Plug('folke/snacks.nvim')
 Plug('sindrets/diffview.nvim')
 Plug('numToStr/Comment.nvim')
 Plug('folke/which-key.nvim')
-
 Plug.ends()
 
 vim.cmd('colorscheme tokyonight-storm')
