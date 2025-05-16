@@ -26,6 +26,7 @@ return {
     cmdline = {
       keymap = {
         preset = 'inherit',
+        ['<Tab>'] = { 'show', 'show_documentation', 'hide_documentation' },
       }
     },
     -- (Default) Only show the documentation popup when manually triggered
