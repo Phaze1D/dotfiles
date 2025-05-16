@@ -19,6 +19,8 @@ return {
         "lua",
         "html",
         "dart",
+        "markdown",
+        "markdown_inline",
       },
       sync_install = false,
       auto_install = false,

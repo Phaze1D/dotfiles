@@ -33,10 +33,10 @@ o.tabstop = 2
 o.shiftwidth = 2
 
 vim.keymap.set('n', '<Space>', '<Nop>', { noremap = true, desc = "Disable space" })
-vim.keymap.set('i', '<C-k>', '<C-o>gk', { noremap = true, desc = "Move cursor up" })
+vim.keymap.set('i', '<C-k>', '<Up>', { noremap = true, desc = "Move cursor up" })
 vim.keymap.set('i', '<C-h>', '<Left>', { noremap = true, desc = "Move cursor left" })
 vim.keymap.set('i', '<C-l>', '<Right>', { noremap = true, desc = "Move cursor right" })
-vim.keymap.set('i', '<C-j>', '<C-o>gj', { noremap = true, desc = "Move cursor down" })
+vim.keymap.set('i', '<C-j>', '<Down>', { noremap = true, desc = "Move cursor down" })
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, desc = "Exit terminal mode" })
 
 
