@@ -1,82 +1,88 @@
-local Snacks = require('snacks')
-require('snacks').setup({
-  input = { enable = true },
-  indent = { enable = true },
-  notifier = {
-    enable = true,
-    timeout = 2000,
-    style = "fancy",
+return {
+  "folke/snacks.nvim",
+  priority = 1000,
+  lazy = false,
+  ---@type snacks.Config
+  opts = {
+    input = { enable = true },
+    indent = { enable = true },
+    notifier = {
+      enable = true,
+      timeout = 2000,
+      style = "fancy",
+    },
+    picker = {
+      enable = true,
+    },
+    explorer = {
+      enable = true,
+    },
   },
-  picker = {
-    enable = true,
-  },
-  explorer = {
-    enable = true,
-  },
-})
+  init = function()
+    require("utils.code_companion_notify")
+  end,
+  keys = {
+    -- Main mappings
+    { "<leader><space>", function() require("snacks").picker.smart() end,                                   desc = "Smart Find Files" },
+    { "<leader>,",       function() require("snacks").picker.buffers() end,                                 desc = "Buffers" },
+    { "<leader>/",       function() require("snacks").picker.grep() end,                                    desc = "Grep" },
+    { "<leader>:",       function() require("snacks").picker.command_history() end,                         desc = "Command History" },
+    { "<leader>n",       function() require("snacks").picker.notifications() end,                           desc = "Notification History" },
+    { "<leader>e",       function() require("snacks").explorer() end,                                       desc = "File Explorer" },
 
--- Keymaps for Snacks
-vim.keymap.set("n", "<leader><space>", function() Snacks.picker.smart() end, { desc = "Smart Find Files" })
-vim.keymap.set("n", "<leader>,", function() Snacks.picker.buffers() end, { desc = "Buffers" })
-vim.keymap.set("n", "<leader>/", function() Snacks.picker.grep() end, { desc = "Grep" })
-vim.keymap.set("n", "<leader>:", function() Snacks.picker.command_history() end, { desc = "Command History" })
-vim.keymap.set("n", "<leader>n", function() Snacks.picker.notifications() end, { desc = "Notification History" })
-vim.keymap.set("n", "<leader>e", function() Snacks.explorer() end, { desc = "File Explorer" })
+    -- Find
+    { "<leader>fb",      function() require("snacks").picker.buffers() end,                                 desc = "Buffers" },
+    { "<leader>fc",      function() require("snacks").picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
+    { "<leader>ff",      function() require("snacks").picker.files() end,                                   desc = "Find Files" },
+    { "<leader>fg",      function() require("snacks").picker.git_files() end,                               desc = "Find Git Files" },
+    { "<leader>fp",      function() require("snacks").picker.projects() end,                                desc = "Projects" },
+    { "<leader>fr",      function() require("snacks").picker.recent() end,                                  desc = "Recent" },
 
--- Find
-vim.keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Buffers" })
-vim.keymap.set("n", "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end,
-  { desc = "Find Config File" })
-vim.keymap.set("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find Files" })
-vim.keymap.set("n", "<leader>fg", function() Snacks.picker.git_files() end, { desc = "Find Git Files" })
-vim.keymap.set("n", "<leader>fp", function() Snacks.picker.projects() end, { desc = "Projects" })
-vim.keymap.set("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "Recent" })
+    -- Git
+    { "<leader>gb",      function() require("snacks").picker.git_branches() end,                            desc = "Git Branches" },
+    { "<leader>gl",      function() require("snacks").picker.git_log() end,                                 desc = "Git Log" },
+    { "<leader>gL",      function() require("snacks").picker.git_log_line() end,                            desc = "Git Log Line" },
+    { "<leader>gs",      function() require("snacks").picker.git_status() end,                              desc = "Git Status" },
+    { "<leader>gS",      function() require("snacks").picker.git_stash() end,                               desc = "Git Stash" },
+    { "<leader>gd",      function() require("snacks").picker.git_diff() end,                                desc = "Git Diff (Hunks)" },
+    { "<leader>gf",      function() require("snacks").picker.git_log_file() end,                            desc = "Git Log File" },
 
--- Git
-vim.keymap.set("n", "<leader>gb", function() Snacks.picker.git_branches() end, { desc = "Git Branches" })
-vim.keymap.set("n", "<leader>gl", function() Snacks.picker.git_log() end, { desc = "Git Log" })
-vim.keymap.set("n", "<leader>gL", function() Snacks.picker.git_log_line() end, { desc = "Git Log Line" })
-vim.keymap.set("n", "<leader>gs", function() Snacks.picker.git_status() end, { desc = "Git Status" })
-vim.keymap.set("n", "<leader>gS", function() Snacks.picker.git_stash() end, { desc = "Git Stash" })
-vim.keymap.set("n", "<leader>gd", function() Snacks.picker.git_diff() end, { desc = "Git Diff (Hunks)" })
-vim.keymap.set("n", "<leader>gf", function() Snacks.picker.git_log_file() end, { desc = "Git Log File" })
+    -- Grep
+    { "<leader>sb",      function() require("snacks").picker.lines() end,                                   desc = "Buffer Lines" },
+    { "<leader>sB",      function() require("snacks").picker.grep_buffers() end,                            desc = "Grep Open Buffers" },
+    { "<leader>sg",      function() require("snacks").picker.grep() end,                                    desc = "Grep" },
+    { "<leader>sw",      function() require("snacks").picker.grep_word() end,                               desc = "Visual selection or word", mode = { "n", "x" } },
 
--- Grep
-vim.keymap.set("n", "<leader>sb", function() Snacks.picker.lines() end, { desc = "Buffer Lines" })
-vim.keymap.set("n", "<leader>sB", function() Snacks.picker.grep_buffers() end, { desc = "Grep Open Buffers" })
-vim.keymap.set("n", "<leader>sg", function() Snacks.picker.grep() end, { desc = "Grep" })
-vim.keymap.set({ "n", "x" }, "<leader>sw", function() Snacks.picker.grep_word() end,
-  { desc = "Visual selection or word" })
+    -- Search
+    { '<leader>s"',      function() require("snacks").picker.registers() end,                               desc = "Registers" },
+    { "<leader>s/",      function() require("snacks").picker.search_history() end,                          desc = "Search History" },
+    { "<leader>sa",      function() require("snacks").picker.autocmds() end,                                desc = "Autocmds" },
+    -- "<leader>sb" is already defined above
+    { "<leader>sc",      function() require("snacks").picker.command_history() end,                         desc = "Command History" },
+    { "<leader>sC",      function() require("snacks").picker.commands() end,                                desc = "Commands" },
+    { "<leader>sd",      function() require("snacks").picker.diagnostics() end,                             desc = "Diagnostics" },
+    { "<leader>sD",      function() require("snacks").picker.diagnostics_buffer() end,                      desc = "Buffer Diagnostics" },
+    { "<leader>sh",      function() require("snacks").picker.help() end,                                    desc = "Help Pages" },
+    { "<leader>sH",      function() require("snacks").picker.highlights() end,                              desc = "Highlights" },
+    { "<leader>si",      function() require("snacks").picker.icons() end,                                   desc = "Icons" },
+    { "<leader>sj",      function() require("snacks").picker.jumps() end,                                   desc = "Jumps" },
+    { "<leader>sk",      function() require("snacks").picker.keymaps() end,                                 desc = "Keymaps" },
+    { "<leader>sl",      function() require("snacks").picker.loclist() end,                                 desc = "Location List" },
+    { "<leader>sm",      function() require("snacks").picker.marks() end,                                   desc = "Marks" },
+    { "<leader>sM",      function() require("snacks").picker.man() end,                                     desc = "Man Pages" },
+    { "<leader>sp",      function() require("snacks").picker.lazy() end,                                    desc = "Search for Plugin Spec" },
+    { "<leader>sq",      function() require("snacks").picker.qflist() end,                                  desc = "Quickfix List" },
+    { "<leader>sR",      function() require("snacks").picker.resume() end,                                  desc = "Resume" },
+    { "<leader>su",      function() require("snacks").picker.undo() end,                                    desc = "Undo History" },
+    { "<leader>uC",      function() require("snacks").picker.colorschemes() end,                            desc = "Colorschemes" },
 
--- Search
-vim.keymap.set("n", '<leader>s"', function() Snacks.picker.registers() end, { desc = "Registers" })
-vim.keymap.set("n", "<leader>s/", function() Snacks.picker.search_history() end, { desc = "Search History" })
-vim.keymap.set("n", "<leader>sa", function() Snacks.picker.autocmds() end, { desc = "Autocmds" })
-vim.keymap.set("n", "<leader>sb", function() Snacks.picker.lines() end, { desc = "Buffer Lines" })
-vim.keymap.set("n", "<leader>sc", function() Snacks.picker.command_history() end, { desc = "Command History" })
-vim.keymap.set("n", "<leader>sC", function() Snacks.picker.commands() end, { desc = "Commands" })
-vim.keymap.set("n", "<leader>sd", function() Snacks.picker.diagnostics() end, { desc = "Diagnostics" })
-vim.keymap.set("n", "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, { desc = "Buffer Diagnostics" })
-vim.keymap.set("n", "<leader>sh", function() Snacks.picker.help() end, { desc = "Help Pages" })
-vim.keymap.set("n", "<leader>sH", function() Snacks.picker.highlights() end, { desc = "Highlights" })
-vim.keymap.set("n", "<leader>si", function() Snacks.picker.icons() end, { desc = "Icons" })
-vim.keymap.set("n", "<leader>sj", function() Snacks.picker.jumps() end, { desc = "Jumps" })
-vim.keymap.set("n", "<leader>sk", function() Snacks.picker.keymaps() end, { desc = "Keymaps" })
-vim.keymap.set("n", "<leader>sl", function() Snacks.picker.loclist() end, { desc = "Location List" })
-vim.keymap.set("n", "<leader>sm", function() Snacks.picker.marks() end, { desc = "Marks" })
-vim.keymap.set("n", "<leader>sM", function() Snacks.picker.man() end, { desc = "Man Pages" })
-vim.keymap.set("n", "<leader>sp", function() Snacks.picker.lazy() end, { desc = "Search for Plugin Spec" })
-vim.keymap.set("n", "<leader>sq", function() Snacks.picker.qflist() end, { desc = "Quickfix List" })
-vim.keymap.set("n", "<leader>sR", function() Snacks.picker.resume() end, { desc = "Resume" })
-vim.keymap.set("n", "<leader>su", function() Snacks.picker.undo() end, { desc = "Undo History" })
-vim.keymap.set("n", "<leader>uC", function() Snacks.picker.colorschemes() end, { desc = "Colorschemes" })
-
--- LSP
-vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, { desc = "Goto Definition" })
-vim.keymap.set("n", "gD", function() Snacks.picker.lsp_declarations() end, { desc = "Goto Declaration" })
-vim.keymap.set("n", "gR", function() Snacks.picker.lsp_references() end, { desc = "References", nowait = true })
-vim.keymap.set("n", "gI", function() Snacks.picker.lsp_implementations() end, { desc = "Goto Implementation" })
-vim.keymap.set("n", "gy", function() Snacks.picker.lsp_type_definitions() end, { desc = "Goto T[y]pe Definition" })
-vim.keymap.set("n", "<leader>ss", function() Snacks.picker.lsp_symbols() end, { desc = "LSP Symbols" })
-vim.keymap.set("n", "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end,
-  { desc = "LSP Workspace Symbols" })
+    -- LSP
+    { "gd",              function() require("snacks").picker.lsp_definitions() end,                         desc = "Goto Definition" },
+    { "gD",              function() require("snacks").picker.lsp_declarations() end,                        desc = "Goto Declaration" },
+    { "gR",              function() require("snacks").picker.lsp_references() end,                          desc = "References",               nowait = true },
+    { "gI",              function() require("snacks").picker.lsp_implementations() end,                     desc = "Goto Implementation" },
+    { "gy",              function() require("snacks").picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
+    { "<leader>ss",      function() require("snacks").picker.lsp_symbols() end,                             desc = "LSP Symbols" },
+    { "<leader>sS",      function() require("snacks").picker.lsp_workspace_symbols() end,                   desc = "LSP Workspace Symbols" },
+  }
+}

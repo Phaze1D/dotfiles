@@ -1,11 +1,9 @@
-local CodeCompanionSpinner = require("lualine.component"):extend()
-
--- Component properties
-CodeCompanionSpinner.spinner_index = 1
-CodeCompanionSpinner.processing = false
-
-require('lualine').setup({
-  options = {
-    theme = 'tokyonight'
-  },
-})
+return {
+  'nvim-lualine/lualine.nvim',
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  opts = {
+    options = {
+      theme = 'tokyonight-storm',
+    },
+  }
+}
