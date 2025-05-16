@@ -25,7 +25,7 @@ local M = {
     "github/copilot.vim",
   },
   init = function()
-    vim.keymap.set('i', '<S-Tab>', 'copilot#Accept("")', {
+    vim.keymap.set('i', '<C-;>', 'copilot#Accept("")', {
       expr = true,
       replace_keycodes = false
     })
