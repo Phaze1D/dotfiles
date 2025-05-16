@@ -30,6 +30,7 @@ return {
         vim.api.nvim_create_autocmd("BufWritePre", {
           buffer = event.buf,
           callback = function()
+            vim.cmd.undojoin()
             vim.lsp.buf.format({ async = false })
           end,
         })
