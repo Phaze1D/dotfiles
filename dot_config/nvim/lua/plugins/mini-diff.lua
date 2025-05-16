@@ -1,4 +1,4 @@
 return {
   'echasnovski/mini.diff',
-  version = '*'
+  version = '*',
 }
