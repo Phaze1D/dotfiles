@@ -71,8 +71,10 @@ return {
           finder = "vim_commands",
           format = "command",
           preview = "preview",
-          confirm = "cmd",
-          auto_confirm = true,
+          confirm = function(picker, item)
+            picker:close()
+            vim.cmd(item.cmd)
+          end
         })
       end,
       desc = "Commands"
