@@ -33,15 +33,19 @@ return {
     completion = {
       menu = {
         draw = {
-          treesitter = { 'lsp' }
+          treesitter = { 'lsp' },
+          window = { border = "rounded" },
         }
       },
       documentation = {
         auto_show = true,
+        window = { border = "rounded" },
       },
       list = {
         selection = {
           auto_insert = false,
+          window = { border = "rounded" },
+
         }
       }
     },
