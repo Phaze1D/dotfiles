@@ -4,6 +4,8 @@ return {
   opts = {
     options = {
       theme = 'tokyonight-storm',
+      component_separators = "",
+      section_separators = { left = "", right = "" },
     },
   }
 }

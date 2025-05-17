@@ -64,13 +64,13 @@ return {
         text = {
           { "  ", hl = "SnacksDashboardIcon" },
           {
-            "Sessions",
+            "Load Session",
             hl = "SnacksDashboardDesc",
             width = width
           },
           { "[s]", hl = "SnacksDashboardKey" },
         },
-        action = function() require("persistence").select() end,
+        action = function() require("persistence").load() end,
         key = 's',
       },
       {
