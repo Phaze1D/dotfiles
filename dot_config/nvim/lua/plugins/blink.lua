@@ -34,7 +34,6 @@ return {
       menu = {
         draw = {
           treesitter = { 'lsp' },
-          window = { border = "rounded" },
         }
       },
       documentation = {
@@ -42,10 +41,9 @@ return {
         window = { border = "rounded" },
       },
       list = {
+        window = { border = "rounded" },
         selection = {
           auto_insert = false,
-          window = { border = "rounded" },
-
         }
       }
     },
