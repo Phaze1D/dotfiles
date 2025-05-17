@@ -6,6 +6,7 @@ return {
   opts = {
     input = { enable = true },
     indent = { enable = true },
+    rename = { enable = true },
     notifier = {
       enable = true,
       timeout = 2000,
