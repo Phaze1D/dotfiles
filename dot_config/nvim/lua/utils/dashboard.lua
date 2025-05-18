@@ -14,7 +14,7 @@ return {
       cmd = "lolcat " .. header_path,
       height = 22,
       width = 47,
-      indent = 1,
+      indent = 2,
       padding = 1,
     },
     {

@@ -42,7 +42,6 @@ return {
         window = { border = "rounded" },
       },
       list = {
-        border = "rounded",
         selection = {
           auto_insert = false,
         }
