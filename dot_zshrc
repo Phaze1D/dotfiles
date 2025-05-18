@@ -18,7 +18,7 @@ _comp_options+=(globdots)
 bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
 
-export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+export ZVM_VI_ESCAPE_BINDKEY=jk
 # CUSTOM SECTION
 
 # If you come from bash you might have to change your $PATH.
@@ -94,14 +94,14 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  autoupdate
+  macos
   git
   docker
   docker-compose
-  macos
-  zsh-vi-mode
   zsh-autosuggestions
+  zsh-vi-mode
   fast-syntax-highlighting
-  autoupdate
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -135,3 +135,4 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
