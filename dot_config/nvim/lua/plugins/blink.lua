@@ -38,11 +38,11 @@ return {
         }
       },
       documentation = {
-        auto_show = true,
+        auto_show = false,
         window = { border = "rounded" },
       },
       list = {
-        window = { border = "rounded" },
+        border = "rounded",
         selection = {
           auto_insert = false,
         }
