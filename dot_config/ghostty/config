@@ -1,5 +1,7 @@
 font-family = MesloLGS NerdFont
 font-size = 16
+shell-integration = zsh
+
 palette = 0=#1d202f
 palette = 1=#f7768e
 palette = 2=#9ece6a
@@ -22,3 +24,9 @@ foreground = #c0caf5
 cursor-color = #c0caf5
 selection-background = #2e3c64
 selection-foreground = #c0caf5
+
+
+keybind = super+alt+k=goto_split:up
+keybind = super+alt+j=goto_split:down
+keybind = super+alt+l=goto_split:right
+keybind = super+alt+h=goto_split:left
