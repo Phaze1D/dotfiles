@@ -1,7 +1,8 @@
+theme = tokyonight-storm 
+
 font-family = MesloLGS Nerd Font
 font-size = 16
-
-theme = tokyonight-storm 
+font-thicken = true
 
 keybind = super+alt+k=goto_split:up
 keybind = super+alt+j=goto_split:down
