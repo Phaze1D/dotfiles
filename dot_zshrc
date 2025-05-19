@@ -8,12 +8,15 @@ fi
 # CUSTOM SECTION
 HISTSIZE=10000
 SAVEHIST=10000
-alias vim='nvim'
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
+
+alias spot='cd ~/Projects/spot_q/'
+alias vim='nvim'
+
 
 bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
