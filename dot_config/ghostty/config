@@ -17,7 +17,6 @@ keybind = super+ctrl+h=resize_split:left,20
 keybind = super+up=scroll_to_top
 keybind = super+down=scroll_to_bottom
 
-font-feature = -calt, -liga, -dlig
 
 
 
