@@ -29,10 +29,10 @@ return {
             hl = "SnacksDashboardDesc",
             width = width
           },
-          { "[space]", hl = "SnacksDashboardKey" },
+          { "[f]", hl = "SnacksDashboardKey" },
         },
         action = ":lua Snacks.dashboard.pick('smart')",
-        key = '<space>',
+        key = 'f',
       },
       {
         text = {
