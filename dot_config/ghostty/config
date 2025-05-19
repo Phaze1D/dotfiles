@@ -1,8 +1,5 @@
 font-family = MesloLGS Nerd Font
 font-size = 16
-font-thicken = true
-font-thicken-strength = 100
-shell-integration = zsh
 
 theme = tokyonight-storm 
 
