@@ -17,7 +17,7 @@ return {
     { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
     {
       "gl",
-      mode = { "n" },
+      mode = { "n", "o", "x" },
       function()
         require("flash").jump({
           search = { mode = "search", max_length = 0 },
