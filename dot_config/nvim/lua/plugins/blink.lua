@@ -24,6 +24,11 @@ return {
       nerd_font_variant = 'normal',
     },
     cmdline = {
+      completion = {
+        ghost_text = {
+          enabled = false
+        }
+      },
       keymap = {
         preset = 'inherit',
         ['<Tab>'] = { 'show', 'show_documentation', 'hide_documentation' },
