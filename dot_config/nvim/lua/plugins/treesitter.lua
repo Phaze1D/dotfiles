@@ -12,6 +12,7 @@ return {
         "javascript",
         "typescript",
         "tsx",
+        "dart",
         "graphql",
         "json",
         "dockerfile",
