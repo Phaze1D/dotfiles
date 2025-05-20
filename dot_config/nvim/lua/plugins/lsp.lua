@@ -29,12 +29,17 @@ return {
             desc = 'Rename symbol'
           }
         )
-        vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<cr>',
-          {
-            buffer = event.buf,
-            desc = 'Code actions'
-          }
-        )
+        local filetype = vim.api.nvim_buf_get_option(event.buf, 'filetype')
+
+        -- Only set up code_action keybinding if not a CodeCompanion file
+        if filetype ~= "codecompanion" then
+          vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<cr>',
+            {
+              buffer = event.buf,
+              desc = 'Code actions'
+            }
+          )
+        end
 
         vim.api.nvim_create_autocmd("BufWritePre", {
           buffer = event.buf,
