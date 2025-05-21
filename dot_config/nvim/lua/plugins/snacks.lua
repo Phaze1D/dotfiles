@@ -4,6 +4,7 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
+    bufdelete = { enable = true },
     input = { enable = true },
     indent = { enable = true },
     rename = { enable = true },
@@ -54,6 +55,7 @@ return {
     { "<leader>gf",      function() Snacks.picker.git_log_file() end,                            desc = "Git Log File" },
     -- { "<leader>gg",      function() Snacks.lazygit() end,                                        desc = "Lazygit" },
 
+    { "<leader>bd",      function() Snacks.bufdelete() end,                                      desc = "Delete buffer" },
 
     -- Grep
     { "<leader>sb",      function() Snacks.picker.lines() end,                                   desc = "Buffer Lines" },
