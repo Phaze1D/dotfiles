@@ -7,6 +7,7 @@ return {
     input = { enable = true },
     indent = { enable = true },
     rename = { enable = true },
+    scroll = { enable = true },
     notifier = {
       enable = true,
       timeout = 2000,
@@ -51,6 +52,8 @@ return {
     { "<leader>gS",      function() Snacks.picker.git_stash() end,                               desc = "Git Stash" },
     { "<leader>gd",      function() Snacks.picker.git_diff() end,                                desc = "Git Diff (Hunks)" },
     { "<leader>gf",      function() Snacks.picker.git_log_file() end,                            desc = "Git Log File" },
+    -- { "<leader>gg",      function() Snacks.lazygit() end,                                        desc = "Lazygit" },
+
 
     -- Grep
     { "<leader>sb",      function() Snacks.picker.lines() end,                                   desc = "Buffer Lines" },
