@@ -33,5 +33,7 @@ return {
     { "<TAB>",      function() require("bufferline").cycle(1) end,  desc = "Next buffer" },
     { "<S-Tab>",    function() require("bufferline").cycle(-1) end, desc = "Previous buffer" },
     { "<leader>bp", function() require("bufferline").pick() end,    desc = "Pick buffer" },
+    { "<leader>bm", function() require("bufferline").move(1) end,   desc = "Move next buffer" },
+    { "<leader>bn", function() require("bufferline").move(-1) end,  desc = "Move prev buffer" },
   }
 }
