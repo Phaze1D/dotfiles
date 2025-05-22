@@ -15,6 +15,7 @@ compinit
 _comp_options+=(globdots)
 
 alias spot='cd ~/Projects/spot_q/'
+alias config='cd ~/.local/share/chezmoi/'
 alias vim='nvim'
 
 
