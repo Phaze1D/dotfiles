@@ -4,6 +4,8 @@ return {
   opts = {
     servers = {
       lua_ls = {},
+      ts_ls = {},
+      eslint = {},
     }
   },
   config = function(_, opts)
