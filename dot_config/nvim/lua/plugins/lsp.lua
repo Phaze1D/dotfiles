@@ -6,6 +6,7 @@ return {
       lua_ls = {},
       ts_ls = {},
       eslint = {},
+      marksman = {},
     }
   },
   config = function(_, opts)
@@ -46,8 +47,10 @@ return {
         vim.api.nvim_create_autocmd("BufWritePre", {
           buffer = event.buf,
           callback = function()
-            vim.cmd.undojoin()
-            vim.lsp.buf.format({ async = false })
+            if filetype ~= "markdown" then
+              vim.cmd.undojoin()
+              vim.lsp.buf.format({ async = false })
+            end
           end,
         })
       end,
