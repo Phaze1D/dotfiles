@@ -46,6 +46,7 @@ return {
 
         vim.api.nvim_create_autocmd("BufWritePre", {
           buffer = event.buf,
+          command = "LspEslintFixAll",
           callback = function()
             if filetype ~= "markdown" then
               vim.cmd.undojoin()
