@@ -15,6 +15,10 @@ return {
     },
     picker = {
       enable = true,
+      sources = {
+        files = { hidden = true },
+        explorer = { hidden = true },
+      },
     },
     explorer = {
       enable = true,
