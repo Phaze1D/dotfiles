@@ -65,7 +65,7 @@ return {
     end, {})
   end,
   -- https://eslint.org/docs/user-guide/configuring/configuration-files#configuration-file-formats
-  root_dir = function(bufnr, on_dir)
+  root_dir = function(fname)
     local root_file_patterns = {
       '.eslintrc',
       '.eslintrc.js',
@@ -81,10 +81,14 @@ return {
       'eslint.config.cts',
     }
 
-    local fname = vim.api.nvim_buf_get_name(bufnr)
+    -- Use the provided filename directly - no need for buffer operations
     root_file_patterns = util.insert_package_json(root_file_patterns, 'eslintConfig', fname)
-    on_dir(vim.fs.dirname(vim.fs.find(root_file_patterns, { path = fname, upward = true })[1]))
+    local files = vim.fs.find(root_file_patterns, { path = fname, upward = true })
+    if #files > 0 then
+      return vim.fs.dirname(files[1])
+    end
   end,
+
   -- Refer to https://github.com/Microsoft/vscode-eslint#settings-options for documentation.
   settings = {
     validate = 'on',
