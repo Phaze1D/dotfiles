@@ -47,6 +47,7 @@ return {
       eslint = require('utils.lsp.eslint'),
       marksman = require('utils.lsp.marksman'),
       jsonls = require('utils.lsp.json'),
+      graphql = require('utils.lsp.graphql'),
     }
   },
   config = function(_, opts)
