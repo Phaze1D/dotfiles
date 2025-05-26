@@ -37,15 +37,14 @@ local lsp = vim.lsp
 return {
   cmd = { 'vscode-eslint-language-server', '--stdio' },
   filetypes = {
+    'graphql',
+    'gql',
     'javascript',
     'javascriptreact',
     'javascript.jsx',
     'typescript',
     'typescriptreact',
     'typescript.tsx',
-    'vue',
-    'svelte',
-    'astro',
   },
   workspace_required = true,
   on_attach = function(client)
