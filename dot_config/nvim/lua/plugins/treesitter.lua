@@ -23,6 +23,7 @@ return {
         "dart",
         "markdown",
         "markdown_inline",
+        "prisma",
       },
       sync_install = false,
       auto_install = false,
