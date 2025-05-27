@@ -27,8 +27,19 @@ local function setupFormatting(event)
   vim.api.nvim_create_autocmd("BufWritePre", {
     buffer = event.buf,
     callback = function()
-      local filetype = vim.api.nvim_buf_get_option(event.buf, 'filetype')
-      if filetype ~= "markdown" and filetype ~= "markdown.mdx" then
+      local clients = vim.lsp.get_active_clients({ bufnr = event.buf })
+      print(clients)
+      -- Check if any client supports formatting
+      local has_formatting = false
+      for _, client in ipairs(clients) do
+        if client.server_capabilities.documentFormattingProvider then
+          has_formatting = true
+          break
+        end
+      end
+
+      -- Only format if formatting is supported
+      if has_formatting then
         vim.cmd.undojoin()
         vim.lsp.buf.format({ async = false })
       end
@@ -49,6 +60,11 @@ return {
       jsonls = require('utils.lsp.json'),
       graphql = require('utils.lsp.graphql'),
       prismals = {},
+      dockerls = {},
+      docker_compose_language_service = {
+      },
+      yamlls = {
+      },
     }
   },
   config = function(_, opts)
