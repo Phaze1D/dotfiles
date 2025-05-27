@@ -1,5 +1,6 @@
 local M = {
   "olimorris/codecompanion.nvim",
+  event = "VeryLazy",
   opts = {
     adapters = {
       copilot = function()
