@@ -1,5 +1,6 @@
 return {
   'echasnovski/mini.diff',
+  event = { "BufReadPre", "BufNewFile" },
   version = '*',
   config = function()
     local diff = require("mini.diff")
