@@ -17,7 +17,7 @@ return {
       enable = true,
       sources = {
         files = { hidden = true },
-        explorer = { hidden = true },
+        explorer = { hidden = true, ignored = true },
       },
     },
     explorer = {
