@@ -211,3 +211,72 @@ elif type compctl &>/dev/null; then
 fi
 ###-end-npm-completion-###
 
+
+
+# Function to create npm script aliases
+create_npm_aliases() {
+    local package_json="./package.json"
+    
+    # Check if package.json exists
+    if [[ ! -f "$package_json" ]]; then
+        return
+    fi
+    
+    # Check if jq is available for JSON parsing
+    if ! command -v jq &> /dev/null; then
+        echo "Warning: jq is required for parsing package.json"
+        return
+    fi
+    
+    # Extract script names from package.json
+    local scripts=$(jq -r '.scripts | keys[]' "$package_json" 2>/dev/null)
+    
+    if [[ -z "$scripts" ]]; then
+        return
+    fi
+    
+    echo "Creating npm script aliases..."
+    
+    # Create aliases for each script
+    while IFS= read -r script; do
+        if [[ -n "$script" ]]; then
+            alias "$script"="npm run $script"
+            echo "  alias $script='npm run $script'"
+        fi
+    done <<< "$scripts"
+    
+    # Store the aliases for cleanup
+    export NPM_SCRIPT_ALIASES="$scripts"
+}
+
+# Function to remove npm script aliases
+remove_npm_aliases() {
+    if [[ -n "$NPM_SCRIPT_ALIASES" ]]; then
+        while IFS= read -r script; do
+            if [[ -n "$script" ]]; then
+                unalias "$script" 2>/dev/null
+            fi
+        done <<< "$NPM_SCRIPT_ALIASES"
+        unset NPM_SCRIPT_ALIASES
+    fi
+}
+
+# Auto-execute when entering directory with package.json
+chpwd() {
+    # Remove previous aliases
+    remove_npm_aliases
+    
+    # Create new aliases if package.json exists
+    if [[ -f "./package.json" ]]; then
+        create_npm_aliases
+    fi
+}
+
+# Create aliases for current directory if package.json exists
+if [[ -f "./package.json" ]]; then
+    create_npm_aliases
+fi
+
+# Cleanup on shell exit
+trap remove_npm_aliases EXIT
+
