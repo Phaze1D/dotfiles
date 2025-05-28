@@ -36,6 +36,13 @@ local function setupFormatting(event)
           has_formatting = true
           break
         end
+
+        if client.dynamic_capabilities and
+            client.dynamic_capabilities.capabilities and
+            client.dynamic_capabilities.capabilities["textDocument/formatting"] then
+          has_formatting = true
+          break
+        end
       end
 
       -- Only format if formatting is supported
