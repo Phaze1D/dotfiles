@@ -113,7 +113,7 @@
     newline
     load
     ram
-    # ip                    # ip address and bandwidth usage for a specified network interface
+    ip                    # ip address and bandwidth usage for a specified network interface
     # public_ip             # public IP address
     # proxy                 # system-wide http/https/ftp proxy
     battery               # internal battery
@@ -1668,7 +1668,7 @@
   typeset -g POWERLEVEL9K_VPN_IP_BACKGROUND=6
   # When on VPN, show just an icon without the IP address.
   # Tip: To display the private IP address when on VPN, remove the next line.
-  typeset -g POWERLEVEL9K_VPN_IP_CONTENT_EXPANSION=
+  typeset -g POWERLEVEL9K_VPN_IP_CONTENT_EXPANSION='${P9K_VPN_IP_IP:+$P9K_VPN_IP_IP}'
   # Regular expression for the VPN network interface. Run `ifconfig` or `ip -4 a show` while on VPN
   # to see the name of the interface.
   typeset -g POWERLEVEL9K_VPN_IP_INTERFACE='(gpd|wg|(.*tun)|tailscale)[0-9]*|(zt.*)'
@@ -1695,7 +1695,7 @@
   #   P9K_IP_TX_BYTES_DELTA | number of bytes sent since last prompt
   #   P9K_IP_RX_RATE        | receive rate (since last prompt)
   #   P9K_IP_TX_RATE        | send rate (since last prompt)
-  typeset -g POWERLEVEL9K_IP_CONTENT_EXPANSION='${P9K_IP_RX_RATE:+⇣$P9K_IP_RX_RATE }${P9K_IP_TX_RATE:+⇡$P9K_IP_TX_RATE }$P9K_IP_IP'
+  typeset -g POWERLEVEL9K_IP_CONTENT_EXPANSION='$P9K_IP_IP'
   # Show information for the first network interface whose name matches this regular expression.
   # Run `ifconfig` or `ip -4 a show` to see the names of all network interfaces.
   typeset -g POWERLEVEL9K_IP_INTERFACE='[ew].*'
