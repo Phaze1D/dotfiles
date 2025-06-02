@@ -2,6 +2,9 @@ return {
   "folke/flash.nvim",
   event = "VeryLazy",
   opts = {
+    jump = {
+      autojump = true,
+    },
     modes = {
       search = {
         enabled = true,
