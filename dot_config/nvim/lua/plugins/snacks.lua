@@ -15,6 +15,9 @@ return {
     },
     picker = {
       enable = true,
+      filter = {
+        cwd = true,
+      },
       sources = {
         files = { hidden = true },
         explorer = { hidden = true, ignored = true },
