@@ -20,7 +20,7 @@ return {
       },
       sources = {
         files = { hidden = true },
-        explorer = { hidden = true, ignored = true },
+        explorer = { hidden = true },
       },
     },
     explorer = {
