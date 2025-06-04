@@ -14,8 +14,8 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 
-alias spot='cd ~/Projects/spot_q/'
-alias spotb='cd ~/Projects/spot_q_back/'
+alias sf='cd ~/Projects/spot_q/'
+alias sb='cd ~/Projects/spot_q_back/'
 alias config='cd ~/.local/share/chezmoi/'
 alias vim='nvim'
 
