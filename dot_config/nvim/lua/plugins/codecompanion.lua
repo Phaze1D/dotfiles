@@ -3,6 +3,13 @@ local M = {
   event = "VeryLazy",
   opts = {
     adapters = {
+      tavily = function()
+        return require("codecompanion.adapters").extend("tavily", {
+          env = {
+            api_key = "MISSING_TAVILY_API_KEY",
+          },
+        })
+      end,
       copilot = function()
         return require("codecompanion.adapters").extend("copilot", {
           schema = {
