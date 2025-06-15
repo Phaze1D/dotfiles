@@ -23,37 +23,6 @@ local function setupKeymaps(event)
   end
 end
 
-local function setupFormatting(event)
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    buffer = event.buf,
-    callback = function()
-      local clients = vim.lsp.get_active_clients({ bufnr = event.buf })
-      print(clients)
-      -- Check if any client supports formatting
-      local has_formatting = false
-      for _, client in ipairs(clients) do
-        if client.server_capabilities.documentFormattingProvider then
-          has_formatting = true
-          break
-        end
-
-        if client.dynamic_capabilities and
-            client.dynamic_capabilities.capabilities and
-            client.dynamic_capabilities.capabilities["textDocument/formatting"] then
-          has_formatting = true
-          break
-        end
-      end
-
-      -- Only format if formatting is supported
-      if has_formatting then
-        vim.cmd.undojoin()
-        vim.lsp.buf.format({ async = false })
-      end
-    end,
-  })
-end
-
 
 return {
   "neovim/nvim-lspconfig",
@@ -85,7 +54,6 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(event)
         setupKeymaps(event)
-        setupFormatting(event)
       end,
     })
   end,
