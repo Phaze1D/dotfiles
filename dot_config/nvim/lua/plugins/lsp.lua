@@ -30,6 +30,7 @@ return {
   opts = {
     servers = {
       lua_ls = {},
+      sqlls = {},
       ts_ls = require('utils.lsp.ts'),
       eslint = require('utils.lsp.eslint'),
       marksman = require('utils.lsp.marksman'),

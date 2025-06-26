@@ -19,6 +19,7 @@ return {
         "dockerfile",
         "css",
         "lua",
+        "sql",
         "html",
         "dart",
         "markdown",
