@@ -111,8 +111,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-. "$HOME/.atuin/bin/env"
-
 eval "$(atuin init zsh)"
 
 
