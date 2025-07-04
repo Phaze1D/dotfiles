@@ -31,7 +31,7 @@ return {
           },
           { "[f]", hl = "SnacksDashboardKey" },
         },
-        action = ":lua Snacks.dashboard.pick('smart')",
+        action = ":lua Snacks.picker.smart({ filter = { cwd = true } })",
         key = 'f',
       },
       {
