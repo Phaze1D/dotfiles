@@ -34,7 +34,7 @@ return {
       ts_ls = require('utils.lsp.ts'),
       eslint = require('utils.lsp.eslint'),
       marksman = require('utils.lsp.marksman'),
-      jsonls = require('utils.lsp.json'),
+      jsonls = {},
       graphql = require('utils.lsp.graphql'),
       prismals = {},
       dockerls = {},

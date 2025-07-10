@@ -37,6 +37,7 @@ local lsp = vim.lsp
 return {
   cmd = { 'vscode-eslint-language-server', '--stdio' },
   filetypes = {
+    'json',
     'graphql',
     'gql',
     'javascript',
