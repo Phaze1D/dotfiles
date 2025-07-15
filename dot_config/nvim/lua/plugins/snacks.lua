@@ -6,7 +6,6 @@ return {
   opts = {
     bufdelete = { enable = true },
     input = { enable = true },
-    indent = { enable = true },
     rename = { enable = true },
     notifier = {
       enable = true,

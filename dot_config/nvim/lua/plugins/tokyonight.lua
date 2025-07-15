@@ -5,6 +5,6 @@ return {
   enabled = true,
   config = function()
     -- load the colorscheme here
-    vim.cmd([[colorscheme tokyonight-moon]])
+    vim.cmd([[colorscheme tokyonight-storm]])
   end,
 }
