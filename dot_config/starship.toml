@@ -2,8 +2,6 @@
 
 format = """
 [╭](fg:current_line)\
-$os\
-$nix_shell\
 $directory\
 $git_branch\
 $git_status\
@@ -42,7 +40,7 @@ red	= '#eb6f92'
 yellow = '#f6c177'
 
 [os]
-format = '(fg:current_line)[](fg:orange)[$symbol ](fg:primary bg:orange)[](fg:orange)'
+format = '(fg:current_line)[](fg:orange)[$symbol](fg:primary bg:orange)[](fg:orange)'
 disabled = false
 
 [os.symbols]
@@ -58,7 +56,7 @@ FreeBSD = ''
 Garuda = ''
 Gentoo = ''
 Linux = ''
-Macos = ''
+Macos = ' '
 Manjaro = ''
 Mariner = ''
 Mint = ''
@@ -188,7 +186,19 @@ min_time = 500
 format = '[─](fg:current_line)[](fg:orange)[ ](fg:primary bg:orange)[](fg:orange bg:box)[ $duration ](fg:foreground bg:box)[](fg:box)'
 
 [battery]
-format = '[─](fg:current_line)[](fg:yellow)[$symbol ](fg:primary bg:yellow)[](fg:yellow bg:box)[$percentage](fg:foreground bg:box)[](fg:box) '
+format = '[─](fg:current_line)[](fg:yellow)[ $symbol](fg:primary bg:yellow)[](fg:yellow bg:box)[ $percentage](fg:foreground bg:box)[](fg:box) '
+
+[[battery.display]]
+threshold = 10
+style = 'red'
+
+[[battery.display]] 
+threshold = 30
+style = 'yellow'
+
+[[battery.display]] 
+threshold = 100
+style = 'green'
 
 [character]
 format = """
