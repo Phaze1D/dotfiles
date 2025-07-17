@@ -361,6 +361,7 @@
   # Custom prefix.
   # typeset -g POWERLEVEL9K_DIR_PREFIX='in '
 
+  # asdfasdf
   #####################################[ vcs: git status ]######################################
   # Version control background colors.
   typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=2
