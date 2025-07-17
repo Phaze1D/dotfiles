@@ -4,10 +4,6 @@ return {
   lazy = false,
   priority = 1000,
   config = function()
-    vim.cmd([[colorscheme catppuccin-mocha]])
-  end,
-  enabled = true,
-  init = function()
     require('catppuccin').setup({
       color_overrides = {
         mocha = {
@@ -40,5 +36,8 @@ return {
         },
       },
     })
+
+    vim.cmd([[colorscheme catppuccin-mocha]])
   end,
+  enabled = true,
 }
