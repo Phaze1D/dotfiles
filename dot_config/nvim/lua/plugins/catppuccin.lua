@@ -12,7 +12,7 @@ return {
           pink = "#f2a7de",
           mauve = "#b889f4",
           red = "#ea7183",
-          maroon = "#ea838c",
+          maroon = "#68bae0",
           peach = "#f39967",
           yellow = "#eaca89",
           green = "#96d382",
@@ -35,6 +35,12 @@ return {
           crust = "#0e0f16",
         },
       },
+      -- custom_highlights = function(colors)
+      --   return {
+      --     ['@variable.parameter'] = { fg = colors.sapphire },
+      --     ['@variable.parameter.builtin'] = { fg = colors.sapphire },
+      --   }
+      -- end
     })
 
     vim.cmd([[colorscheme catppuccin-mocha]])
