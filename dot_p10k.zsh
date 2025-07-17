@@ -369,7 +369,6 @@
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=3
   typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=5
   typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND=8
-  typeset -g POWERLEVEL9K_VCS_AHEAD_COLOR=3
 
   # Branch icon. Set this parameter to '\UE0A0 ' for the popular Powerline branch icon.
   typeset -g POWERLEVEL9K_VCS_BRANCH_ICON='\uF126 '
