@@ -74,14 +74,9 @@
           }
         },
         {
-          "type": "text",
-          "style": "plain",
-          "template": "—"
-        },
-        {
           "type": "git",
           "style": "diamond",
-          "leading_diamond": "\ue0b6",
+          "leading_diamond": "<#959ec2,p:main_background>—</>\ue0b6",
           "trailing_diamond": "\ue0b4",
           "foreground": "p:secondary_background",
           "background": "p:blue",
@@ -105,7 +100,7 @@
     {
       "type": "prompt",
       "alignment": "right",
-      "filler": "{{ if .Overflow }} {{ else }}─{{ end }}",
+      "filler": "{{ if .Overflow }} {{ else }}<#959ec2>─</>{{ end }}",
       "segments": [
         {
           "type": "battery",
@@ -118,7 +113,7 @@
           ],
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4",
-          "template": " {{ if not .Error }}{{if eq \"Charging\" .State.String}}\uf0e7{{- else if lt .Percentage 10 }}\udb80\udc83{{- else if lt .Percentage 39 }}\udb80\udc7b{{- else if lt .Percentage 59 }}\udb80\udc7d{{- else if lt .Percentage 79 }}\udb80\udc7f{{- else if lt .Percentage 98 }}\udb80\udc81{{- else }}\udb80\udc79{{- end }} {{ .Percentage }}% {{ end }}",
+          "template": " {{ if not .Error }}{{if eq \"Charging\" .State.String}}\udb80\udc84{{- else if lt .Percentage 10 }}\udb80\udc83{{- else if lt .Percentage 39 }}\udb80\udc7b{{- else if lt .Percentage 59 }}\udb80\udc7d{{- else if lt .Percentage 79 }}\udb80\udc7f{{- else if lt .Percentage 98 }}\udb80\udc81{{- else }}\udb80\udc79{{- end }} {{ .Percentage }}% {{ end }}",
           "properties": {
             "cache_duration": "none"
           }
