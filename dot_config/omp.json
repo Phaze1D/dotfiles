@@ -29,6 +29,11 @@
       "alignment": "left",
       "segments": [
         {
+          "type": "text",
+          "style": "plain",
+          "template": "\n"
+        },
+        {
           "type": "os",
           "style": "diamond",
           "background": "p:tertiary_background",
@@ -49,7 +54,7 @@
           "trailing_diamond": "\ue0b4",
           "background": "p:terminal_bluegray",
           "foreground": "p:tertiary_background",
-          "template": "{{ .Path }}",
+          "template": " {{ path .Path .Location }} ",
           "properties": {
             "style": "agnoster_short"
           }
@@ -95,6 +100,6 @@
   ],
   "transient_prompt": {
     "template": "❯ ",
-    "newline": true
+    "newline": false
   }
 }
