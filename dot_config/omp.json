@@ -4,23 +4,25 @@
   "final_space": true,
   "shell_integration": false,
   "palette": {
-    "git_branch_divergence": "p:terminal_pink",
-    "git_changes_pending": "p:terminal_blue",
-    "git_commits_ahead": "p:terminal_brightgray",
-    "git_commits_behind": "p:terminal_lightblue",
+    "git_branch_divergence": "p:pink",
+    "git_changes_pending": "p:blue",
+    "git_commits_ahead": "p:brightgray",
+    "git_commits_behind": "p:lightblue",
     "main_background": "#1f2335",
     "secondary_background": "#282e46",
-    "terminal_blue": "#5DABF3",
-    "terminal_bluegray": "#acb9e6",
-    "terminal_brightgray": "#ced9ff",
-    "terminal_error": "#CA5F71",
-    "terminal_gray": "#AEA4BF",
-    "terminal_green": "#49EF95",
-    "terminal_lightblue": "#7386d0",
-    "terminal_lightgray": "#cbcfe7",
-    "terminal_lightteal": "#99E6B3",
-    "terminal_pink": "#B86CB3",
-    "terminal_red": "#CA5FA6",
+    "blue": "#5DABF3",
+    "bluegray": "#acb9e6",
+    "brightgray": "#ced9ff",
+    "error": "#CA5F71",
+    "gray": "#AEA4BF",
+    "green": "#49EF95",
+    "lightblue": "#7386d0",
+    "lightgray": "#cbcfe7",
+    "lightteal": "#99E6B3",
+    "pink": "#B86CB3",
+    "red": "#CA5FA6",
+    "teal": "#4CC9A8",
+    "peach": "#f39967",
     "tertiary_background": "#2d3654"
   },
   "blocks": [
@@ -37,7 +39,7 @@
           "type": "os",
           "style": "diamond",
           "background": "p:tertiary_background",
-          "foreground": "p:terminal_brightgray",
+          "foreground": "p:brightgray",
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4",
           "template": " {{.Icon}} "
@@ -52,7 +54,7 @@
           "style": "diamond",
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4",
-          "background": "p:terminal_bluegray",
+          "background": "p:bluegray",
           "foreground": "p:tertiary_background",
           "template": " {{ path .Path .Location }} ",
           "properties": {
@@ -77,13 +79,16 @@
         {
           "type": "git",
           "style": "diamond",
-          "foreground": "p:secondary_background",
-          "background": "p:terminal_blue",
-          "background_templates": [
-            "{{ if or (.Working.Changed) (.Staging.Changed) }}p:terminal_pink{{ end }}"
-          ],
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4",
+          "foreground": "p:secondary_background",
+          "background": "p:blue",
+          "background_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}p:peach{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#FFCC80{{ end }}",
+            "{{ if gt .Ahead 0 }}#B388FF{{ end }}",
+            "{{ if gt .Behind 0 }}#B388FB{{ end }}"
+          ],
           "template": " {{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
           "properties": {
             "branch_icon": "\ue725 ",
@@ -91,6 +96,29 @@
             "fetch_status": true,
             "fetch_stash_count": true,
             "fetch_upstream_icon": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "filler": "{{ if .Overflow }} {{ else }}─{{ end }}",
+      "segments": [
+        {
+          "type": "battery",
+          "style": "diamond",
+          "foreground": "p:tertiary_background",
+          "background": "p:main_background",
+          "background_templates": [
+            "{{if eq \"Charging\" .State.String}}p:green{{end}}",
+            "{{ if not .Error }}{{- if lt .Percentage 10 }}p:error{{- else if lt .Percentage 39 }}p:red{{- else if lt .Percentage 59 }}p:lightgray{{- else if lt .Percentage 79 }}p:bluegray{{- else if lt .Percentage 98 }}p:lightblue{{- else }}p:blue{{- end }}{{ end }}"
+          ],
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ if not .Error }}{{if eq \"Charging\" .State.String}}\uf0e7{{- else if lt .Percentage 10 }}\udb80\udc83{{- else if lt .Percentage 39 }}\udb80\udc7b{{- else if lt .Percentage 59 }}\udb80\udc7d{{- else if lt .Percentage 79 }}\udb80\udc7f{{- else if lt .Percentage 98 }}\udb80\udc81{{- else }}\udb80\udc79{{- end }} {{ .Percentage }}% {{ end }}",
+          "properties": {
+            "cache_duration": "none"
           }
         }
       ]
