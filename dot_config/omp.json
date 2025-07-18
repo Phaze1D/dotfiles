@@ -109,7 +109,7 @@
           "background": "p:main_background",
           "background_templates": [
             "{{if eq \"Charging\" .State.String}}p:green{{end}}",
-            "{{ if not .Error }}{{- if lt .Percentage 10 }}p:error{{- else if lt .Percentage 39 }}p:red{{- else if lt .Percentage 59 }}p:lightgray{{- else if lt .Percentage 79 }}p:bluegray{{- else if lt .Percentage 98 }}p:lightblue{{- else }}p:blue{{- end }}{{ end }}"
+            "{{ if not .Error }}{{- if lt .Percentage 10 }}p:error{{- else if lt .Percentage 39 }}p:red{{- else if lt .Percentage 59 }}p:yellow{{- else if lt .Percentage 79 }}p:lightteal{{- else if lt .Percentage 98 }}p:green{{- else }}p:green{{- end }}{{ end }}"
           ],
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4",
