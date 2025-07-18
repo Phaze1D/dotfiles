@@ -56,7 +56,17 @@
           "foreground": "p:tertiary_background",
           "template": " {{ path .Path .Location }} ",
           "properties": {
-            "style": "agnoster_short"
+            "style": "agnoster_short",
+            "cache_duration": "none",
+            "home_icon": "\uf4e2",
+            "max_depth": 1,
+            "mapped_locations": {
+              "~": "\uf015",
+              "~/Desktop": "\uf108",
+              "~/Documents": "\uf0f6",
+              "~/Downloads": "\uf019",
+              "~/Projects": "\ue5fd"
+            }
           }
         },
         {
