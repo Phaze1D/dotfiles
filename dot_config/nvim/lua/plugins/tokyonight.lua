@@ -1,10 +1,14 @@
 return {
   "folke/tokyonight.nvim",
-  lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-  priority = 1000, -- make sure to load this before all the other start plugins
+  lazy = false,
+  priority = 1000,
   enabled = true,
   config = function()
-    -- load the colorscheme here
+    require("tokyonight").setup({
+      style = "moon", -- "storm", "night", "day"
+      transparent = true,
+      terminal_colors = true,
+    })
     vim.cmd([[colorscheme tokyonight-moon]])
   end,
 }

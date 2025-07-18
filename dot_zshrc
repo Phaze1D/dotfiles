@@ -109,11 +109,17 @@ plugins=(
   fast-syntax-highlighting
 )
 
+zvm_config() {
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+}
+
+
 source $ZSH/oh-my-zsh.sh
 
 eval "$(atuin init zsh)"
 # eval "$(starship init zsh)"
-# eval "$(oh-my-posh init zsh --config ~/.config/omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.config/omp.json)"
 
 # User configuration
 
@@ -129,10 +135,10 @@ else
   export EDITOR='nvim'
 fi
 
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+#
+# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
 # Compilation flags

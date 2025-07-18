@@ -1,0 +1,97 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 3,
+  "final_space": true,
+  "shell_integration": false,
+  "palette": {
+    "git_branch_divergence": "p:terminal_pink",
+    "git_changes_pending": "p:terminal_blue",
+    "git_commits_ahead": "p:terminal_brightgray",
+    "git_commits_behind": "p:terminal_lightblue",
+    "main_background": "#1f2335",
+    "secondary_background": "#282e46",
+    "terminal_blue": "#5DABF3",
+    "terminal_bluegray": "#acb9e6",
+    "terminal_brightgray": "#ced9ff",
+    "terminal_error": "#CA5F71",
+    "terminal_gray": "#AEA4BF",
+    "terminal_green": "#49EF95",
+    "terminal_lightblue": "#7386d0",
+    "terminal_lightgray": "#cbcfe7",
+    "terminal_lightteal": "#99E6B3",
+    "terminal_pink": "#B86CB3",
+    "terminal_red": "#CA5FA6",
+    "tertiary_background": "#2d3654"
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "os",
+          "style": "diamond",
+          "background": "p:tertiary_background",
+          "foreground": "p:terminal_brightgray",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": " {{.Icon}} "
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "template": "—"
+        },
+        {
+          "type": "path",
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "background": "p:terminal_bluegray",
+          "foreground": "p:tertiary_background",
+          "template": "{{ .Path }}",
+          "properties": {
+            "style": "agnoster_short"
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "template": "—"
+        },
+        {
+          "type": "git",
+          "style": "diamond",
+          "foreground": "p:secondary_background",
+          "background": "p:terminal_blue",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "properties": {
+            "branch_icon": "\ue725 ",
+            "branch_max_length": 20,
+            "fetch_status": true,
+            "fetch_stash_count": true,
+            "fetch_upstream_icon": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "template": "❯"
+        }
+      ]
+    }
+  ],
+  "transient_prompt": {
+    "template": "❯ ",
+    "newline": true
+  }
+}
