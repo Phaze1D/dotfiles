@@ -19,6 +19,7 @@
     "yellow": "#eaca89",
     "mauve": "#b889f4",
     "lightblue": "#7386d0",
+    "sapphire": "#68bae0",
     "lightgray": "#cbcfe7",
     "lightteal": "#99E6B3",
     "pink": "#B86CB3",
@@ -103,16 +104,33 @@
       "filler": "{{ if .Overflow }} {{ else }}<#959ec2>─</>{{ end }}",
       "segments": [
         {
+          "type": "command",
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "foreground": "p:tertiary_background",
+          "background": "p:sapphire",
+          "properties": {
+            "shell": "bash",
+            "command": "ifconfig $(route get default | grep interface | awk '{print $2}') | grep \"inet \" | awk '{print $2}'"
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "template": "—"
+        },
+        {
           "type": "battery",
           "style": "diamond",
           "foreground": "p:tertiary_background",
           "background": "p:main_background",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
           "background_templates": [
             "{{if eq \"Charging\" .State.String}}p:green{{end}}",
             "{{ if not .Error }}{{- if lt .Percentage 10 }}p:error{{- else if lt .Percentage 39 }}p:red{{- else if lt .Percentage 59 }}p:yellow{{- else if lt .Percentage 79 }}p:lightteal{{- else if lt .Percentage 98 }}p:green{{- else }}p:green{{- end }}{{ end }}"
           ],
-          "leading_diamond": "\ue0b6",
-          "trailing_diamond": "\ue0b4",
           "template": " {{ if not .Error }}{{if eq \"Charging\" .State.String}}\udb80\udc84{{- else if lt .Percentage 10 }}\udb80\udc83{{- else if lt .Percentage 39 }}\udb80\udc7b{{- else if lt .Percentage 59 }}\udb80\udc7d{{- else if lt .Percentage 79 }}\udb80\udc7f{{- else if lt .Percentage 98 }}\udb80\udc81{{- else }}\udb80\udc79{{- end }} {{ .Percentage }}% {{ end }}",
           "properties": {
             "cache_duration": "none"
@@ -128,7 +146,14 @@
         {
           "type": "text",
           "style": "plain",
-          "template": "❯"
+          "foreground_templates": [
+            "{{if contains \"N\" .Env.POSH_VI_MODE}}p:blue{{end}}",
+            "{{if contains \"I\" .Env.POSH_VI_MODE}}p:teal{{end}}",
+            "{{if contains \"V\" .Env.POSH_VI_MODE}}p:peach{{end}}",
+            "{{if contains \"V-L\" .Env.POSH_VI_MODE}}#959ec2{{end}}",
+            "{{if contains \"R\" .Env.POSH_VI_MODE}}p:red{{end}}"
+          ],
+          "template": "➜"
         }
       ]
     }

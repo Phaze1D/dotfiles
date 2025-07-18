@@ -114,7 +114,6 @@ zvm_config() {
   ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 }
 
-
 source $ZSH/oh-my-zsh.sh
 
 eval "$(atuin init zsh)"
@@ -134,6 +133,39 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='nvim'
 fi
+
+# OMP zsh-vi-mode integration
+_omp_redraw-prompt() {
+  local precmd
+  for precmd in "${precmd_functions[@]}"; do
+    "$precmd"
+  done
+
+  zle .reset-prompt
+}
+
+export POSH_VI_MODE="I"
+
+function zvm_after_select_vi_mode() {
+  case $ZVM_MODE in
+  $ZVM_MODE_NORMAL)
+    POSH_VI_MODE="N"
+    ;;
+  $ZVM_MODE_INSERT)
+    POSH_VI_MODE="I"
+    ;;
+  $ZVM_MODE_VISUAL)
+    POSH_VI_MODE="V"
+    ;;
+  $ZVM_MODE_VISUAL_LINE)
+    POSH_VI_MODE="V-L"
+    ;;
+  $ZVM_MODE_REPLACE)
+    POSH_VI_MODE="R"
+    ;;
+  esac
+  _omp_redraw-prompt
+}
 
 # source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 #
