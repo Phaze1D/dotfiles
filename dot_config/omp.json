@@ -104,6 +104,15 @@
       "filler": "{{ if .Overflow }} {{ else }}<#959ec2>─</>{{ end }}",
       "segments": [
         {
+          "type": "node",
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
+          "foreground": "p:tertiary_background",
+          "background": "#80bd02",
+          "template": "  {{ .Full }} "
+        },
+        {
           "type": "command",
           "style": "diamond",
           "leading_diamond": "\ue0b6",
@@ -116,20 +125,6 @@
             "command": "ifconfig $(route get default 2>/dev/null | grep interface | awk '{print $2}') 2>/dev/null | grep \"inet \" | awk '{print $2}' | head -1",
             "cache_duration": "15m"
           }
-        },
-        {
-          "type": "text",
-          "style": "plain",
-          "template": "—"
-        },
-        {
-          "type": "node",
-          "style": "diamond",
-          "leading_diamond": "\ue0b6",
-          "trailing_diamond": "\ue0b4",
-          "foreground": "p:tertiary_background",
-          "background": "#80bd02",
-          "template": "  {{ .Full }} "
         },
         {
           "type": "text",
