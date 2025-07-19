@@ -144,7 +144,7 @@
             "{{if lt .Percentage 39}}p:red{{end}}",
             "{{if lt .Percentage 59}}p:yellow{{end}}",
             "{{if lt .Percentage 79}}p:lightteal{{end}}",
-            "{{if lt .Percentage 98}}p:green{{end}}"
+            "{{if lt .Percentage 101}}p:green{{end}}"
           ],
           "template": " {{ if not .Error }}{{if eq \"Charging\" .State.String}}\udb80\udc84{{- else if lt .Percentage 10 }}\udb80\udc83{{- else if lt .Percentage 39 }}\udb80\udc7b{{- else if lt .Percentage 59 }}\udb80\udc7d{{- else if lt .Percentage 79 }}\udb80\udc7f{{- else if lt .Percentage 98 }}\udb80\udc81{{- else }}\udb80\udc79{{- end }} {{ .Percentage }}% {{ end }}",
           "properties": {
