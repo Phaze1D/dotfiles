@@ -123,6 +123,20 @@
           "template": "—"
         },
         {
+          "type": "node",
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "foreground": "p:tertiary_background",
+          "background": "#80bd02",
+          "template": "  {{ .Full }} "
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "template": "—"
+        },
+        {
           "type": "battery",
           "style": "diamond",
           "foreground": "p:tertiary_background",
