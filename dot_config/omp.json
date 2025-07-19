@@ -110,9 +110,11 @@
           "trailing_diamond": "\ue0b4",
           "foreground": "p:tertiary_background",
           "background": "p:sapphire",
+          "template": " {{ if .Output }}{{ .Output }}{{ else }}No IP{{ end }} ",
           "properties": {
             "shell": "bash",
-            "command": "ifconfig $(route get default | grep interface | awk '{print $2}') | grep \"inet \" | awk '{print $2}'"
+            "command": "ifconfig $(route get default 2>/dev/null | grep interface | awk '{print $2}') 2>/dev/null | grep \"inet \" | awk '{print $2}' | head -1",
+            "cache_duration": "5m"
           }
         },
         {
@@ -129,7 +131,11 @@
           "trailing_diamond": "\ue0b4",
           "background_templates": [
             "{{if eq \"Charging\" .State.String}}p:green{{end}}",
-            "{{ if not .Error }}{{- if lt .Percentage 10 }}p:error{{- else if lt .Percentage 39 }}p:red{{- else if lt .Percentage 59 }}p:yellow{{- else if lt .Percentage 79 }}p:lightteal{{- else if lt .Percentage 98 }}p:green{{- else }}p:green{{- end }}{{ end }}"
+            "{{if lt .Percentage 10}}p:error{{end}}",
+            "{{if lt .Percentage 39}}p:red{{end}}",
+            "{{if lt .Percentage 59}}p:yellow{{end}}",
+            "{{if lt .Percentage 79}}p:lightteal{{end}}",
+            "{{if lt .Percentage 98}}p:green{{end}}"
           ],
           "template": " {{ if not .Error }}{{if eq \"Charging\" .State.String}}\udb80\udc84{{- else if lt .Percentage 10 }}\udb80\udc83{{- else if lt .Percentage 39 }}\udb80\udc7b{{- else if lt .Percentage 59 }}\udb80\udc7d{{- else if lt .Percentage 79 }}\udb80\udc7f{{- else if lt .Percentage 98 }}\udb80\udc81{{- else }}\udb80\udc79{{- end }} {{ .Percentage }}% {{ end }}",
           "properties": {
