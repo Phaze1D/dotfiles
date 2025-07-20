@@ -48,14 +48,9 @@
           "template": " {{.Icon}} "
         },
         {
-          "type": "text",
-          "style": "plain",
-          "template": "—"
-        },
-        {
           "type": "path",
           "style": "diamond",
-          "leading_diamond": "\ue0b6",
+          "leading_diamond": "<#959ec2,p:main_background>—</>\ue0b6",
           "trailing_diamond": "\ue0b4",
           "background": "p:bluegray",
           "foreground": "p:tertiary_background",
@@ -110,7 +105,7 @@
           "trailing_diamond": "\ue0b4",
           "foreground": "p:tertiary_background",
           "background": "p:sapphire",
-          "template": "\udb81\udd9f {{ if .Output }}{{ .Output }}{{ else }}No IP{{ end }}",
+          "template": " \udb81\udd9f {{ if .Output }}{{ .Output }}{{ else }}No IP{{ end }} ",
           "properties": {
             "shell": "bash",
             "command": "ifconfig $(route get default 2>/dev/null | grep interface | awk '{print $2}') 2>/dev/null | grep \"inet \" | awk '{print $2}' | head -1",
@@ -118,16 +113,11 @@
           }
         },
         {
-          "type": "text",
-          "style": "plain",
-          "template": "—"
-        },
-        {
           "type": "battery",
           "style": "diamond",
           "foreground": "p:tertiary_background",
           "background": "p:main_background",
-          "leading_diamond": "\ue0b6",
+          "leading_diamond": "<#959ec2,p:main_background>—</>\ue0b6",
           "trailing_diamond": "\ue0b4",
           "background_templates": [
             "{{if eq \"Charging\" .State.String}}p:green{{end}}",
@@ -153,11 +143,11 @@
           "type": "text",
           "style": "plain",
           "foreground_templates": [
-            "{{if contains \"N\" .Env.POSH_VI_MODE}}p:blue{{end}}",
+            "{{if contains \"N\" .Env.POSH_VI_MODE}}p:red{{end}}",
             "{{if contains \"I\" .Env.POSH_VI_MODE}}p:teal{{end}}",
             "{{if contains \"V\" .Env.POSH_VI_MODE}}p:peach{{end}}",
             "{{if contains \"V-L\" .Env.POSH_VI_MODE}}#959ec2{{end}}",
-            "{{if contains \"R\" .Env.POSH_VI_MODE}}p:red{{end}}"
+            "{{if contains \"R\" .Env.POSH_VI_MODE}}p:blue{{end}}"
           ],
           "template": "➜"
         }
