@@ -103,7 +103,7 @@
           "type": "command",
           "style": "diamond",
           "leading_diamond": "\ue0b6",
-          "trailing_diamond": "\ue0b4",
+          "trailing_diamond": "\ue0b4<#959ec2,p:main_background>\u2500\u256e</>",
           "foreground": "p:tertiary_background",
           "background": "p:cpink",
           "template": " \udb81\udd9f {{ if .Output }}{{ .Output }}{{ else }}No IP{{ end }} ",
@@ -111,26 +111,6 @@
             "shell": "bash",
             "command": "ifconfig $(route get default 2>/dev/null | grep interface | awk '{print $2}') 2>/dev/null | grep \"inet \" | awk '{print $2}' | head -1",
             "cache_duration": "15m"
-          }
-        },
-        {
-          "type": "battery",
-          "style": "diamond",
-          "foreground": "p:tertiary_background",
-          "background": "p:main_background",
-          "leading_diamond": "<#959ec2,p:main_background>—</>\ue0b6",
-          "trailing_diamond": "\ue0b4",
-          "background_templates": [
-            "{{if eq \"Charging\" .State.String}}p:green{{end}}",
-            "{{if lt .Percentage 10}}p:error{{end}}",
-            "{{if lt .Percentage 39}}p:red{{end}}",
-            "{{if lt .Percentage 59}}p:yellow{{end}}",
-            "{{if lt .Percentage 79}}p:lightteal{{end}}",
-            "{{if lt .Percentage 101}}p:green{{end}}"
-          ],
-          "template": " {{ if not .Error }}{{if eq \"Charging\" .State.String}}\udb80\udc84{{- else if lt .Percentage 10 }}\udb80\udc83{{- else if lt .Percentage 39 }}\udb80\udc7b{{- else if lt .Percentage 59 }}\udb80\udc7d{{- else if lt .Percentage 79 }}\udb80\udc7f{{- else if lt .Percentage 98 }}\udb80\udc81{{- else }}\udb80\udc79{{- end }} {{ .Percentage }}% {{ end }}",
-          "properties": {
-            "cache_duration": "none"
           }
         }
       ]
@@ -166,7 +146,7 @@
           "type": "node",
           "style": "diamond",
           "leading_diamond": "\ue0b6",
-          "trailing_diamond": "\ue0b4",
+          "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
           "foreground": "p:tertiary_background",
           "background": "#80bd02",
           "template": "  {{ .Full }} "
@@ -175,12 +155,32 @@
           "type": "flutter",
           "style": "diamond",
           "leading_diamond": "\ue0b6",
-          "trailing_diamond": "\ue0b4",
+          "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
           "foreground": "p:tertiary_background",
           "background": "#06A4CE",
           "template": "  {{ .Full }} ",
           "properties": {
             "cache_duration": "15m"
+          }
+        },
+        {
+          "type": "battery",
+          "style": "diamond",
+          "foreground": "p:tertiary_background",
+          "background": "p:main_background",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4<#959ec2,p:main_background>\u2500\u256f</>",
+          "background_templates": [
+            "{{if eq \"Charging\" .State.String}}p:green{{end}}",
+            "{{if lt .Percentage 10}}p:error{{end}}",
+            "{{if lt .Percentage 39}}p:red{{end}}",
+            "{{if lt .Percentage 59}}p:yellow{{end}}",
+            "{{if lt .Percentage 79}}p:lightteal{{end}}",
+            "{{if lt .Percentage 101}}p:green{{end}}"
+          ],
+          "template": " {{ if not .Error }}{{if eq \"Charging\" .State.String}}\udb80\udc84{{- else if lt .Percentage 10 }}\udb80\udc83{{- else if lt .Percentage 39 }}\udb80\udc7b{{- else if lt .Percentage 59 }}\udb80\udc7d{{- else if lt .Percentage 79 }}\udb80\udc7f{{- else if lt .Percentage 98 }}\udb80\udc81{{- else }}\udb80\udc79{{- end }} {{ .Percentage }}% {{ end }}",
+          "properties": {
+            "cache_duration": "none"
           }
         }
       ]
