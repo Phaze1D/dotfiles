@@ -56,19 +56,13 @@
           "trailing_diamond": "\ue0b4",
           "background": "p:bluegray",
           "foreground": "p:tertiary_background",
-          "template": " {{ path .Path .Location }} ",
+          "template": " {{ .Path }} ",
           "properties": {
             "style": "agnoster_short",
             "cache_duration": "none",
             "home_icon": "\uf4e2",
-            "max_depth": 1,
-            "mapped_locations": {
-              "~": "\uf015",
-              "~/Desktop": "\uf108",
-              "~/Documents": "\uf0f6",
-              "~/Downloads": "\uf019",
-              "~/Projects": "\ue5fd"
-            }
+            "folder_icon": "..\ue5fe..",
+            "folder_separator_icon": "  "
           }
         },
         {
