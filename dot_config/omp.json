@@ -44,7 +44,7 @@
           "style": "diamond",
           "background": "p:tertiary_background",
           "foreground": "p:brightgray",
-          "leading_diamond": "\ue0b6",
+          "leading_diamond": "<#959ec2,p:main_background>\u256d\u2500</>\ue0b6",
           "trailing_diamond": "\ue0b4",
           "template": " {{.Icon}} "
         },
@@ -83,9 +83,9 @@
             "{{ if gt .Ahead 0 }}p:mauve{{ end }}",
             "{{ if gt .Behind 0 }}p:mauve{{ end }}"
           ],
-          "template": " {{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "template": " {{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ end }}{{ if .Staging.Changed }} \uf046 {{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ end }} ",
           "properties": {
-            "branch_icon": "\ue725 ",
+            "branch_icon": "󰊢 ",
             "branch_max_length": 20,
             "fetch_status": true,
             "fetch_stash_count": true,
@@ -141,16 +141,19 @@
       "newline": true,
       "segments": [
         {
+          "style": "plain",
+          "template": "<#959ec2,p:main_background>\u2570\u2500</>",
+          "type": "text"
+        },
+        {
           "type": "text",
           "style": "plain",
-          "foreground_templates": [
-            "{{if contains \"N\" .Env.POSH_VI_MODE}}p:red{{end}}",
-            "{{if contains \"I\" .Env.POSH_VI_MODE}}p:green{{end}}",
-            "{{if contains \"V\" .Env.POSH_VI_MODE}}p:peach{{end}}",
-            "{{if contains \"V-L\" .Env.POSH_VI_MODE}}#959ec2{{end}}",
-            "{{if contains \"R\" .Env.POSH_VI_MODE}}p:blue{{end}}"
-          ],
-          "template": "➜"
+          "templates": [
+            "{{if contains \"N\" .Env.POSH_VI_MODE}}<p:red></>{{end}}",
+            "{{if contains \"I\" .Env.POSH_VI_MODE}}<p:green></>{{end}}",
+            "{{if contains \"V\" .Env.POSH_VI_MODE}}<p:blue></>{{end}}",
+            "{{if contains \"R\" .Env.POSH_VI_MODE}}<p:peach></>{{end}}"
+          ]
         }
       ]
     },
