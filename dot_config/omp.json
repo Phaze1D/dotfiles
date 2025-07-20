@@ -22,6 +22,7 @@
     "sapphire": "#68bae0",
     "lightgray": "#cbcfe7",
     "lightteal": "#99E6B3",
+    "cpink": "#f2a7de",
     "pink": "#B86CB3",
     "red": "#CA5FA6",
     "teal": "#4CC9A8",
@@ -104,7 +105,7 @@
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4",
           "foreground": "p:tertiary_background",
-          "background": "p:sapphire",
+          "background": "p:cpink",
           "template": " \udb81\udd9f {{ if .Output }}{{ .Output }}{{ else }}No IP{{ end }} ",
           "properties": {
             "shell": "bash",
@@ -166,6 +167,15 @@
           "foreground": "p:tertiary_background",
           "background": "#80bd02",
           "template": "  {{ .Full }} "
+        },
+        {
+          "type": "flutter",
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "foreground": "p:tertiary_background",
+          "background": "#06A4CE",
+          "template": "  {{ .Full }} "
         }
       ]
     }
