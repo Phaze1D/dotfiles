@@ -167,6 +167,13 @@ function zvm_after_select_vi_mode() {
   _omp_redraw-prompt
 }
 
+chpwd() {
+  if git rev-parse --git-dir > /dev/null 2>&1; then
+    git fetch --quiet
+  fi
+}
+
+
 # source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 #
 # # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
