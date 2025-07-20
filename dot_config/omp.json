@@ -175,7 +175,10 @@
           "trailing_diamond": "\ue0b4",
           "foreground": "p:tertiary_background",
           "background": "#06A4CE",
-          "template": "  {{ .Full }} "
+          "template": "  {{ .Full }} ",
+          "properties": {
+            "cache_duration": "15m"
+          }
         }
       ]
     }
