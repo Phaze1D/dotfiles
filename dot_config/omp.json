@@ -145,7 +145,7 @@
           "style": "plain",
           "foreground_templates": [
             "{{if contains \"N\" .Env.POSH_VI_MODE}}p:red{{end}}",
-            "{{if contains \"I\" .Env.POSH_VI_MODE}}p:teal{{end}}",
+            "{{if contains \"I\" .Env.POSH_VI_MODE}}p:green{{end}}",
             "{{if contains \"V\" .Env.POSH_VI_MODE}}p:peach{{end}}",
             "{{if contains \"V-L\" .Env.POSH_VI_MODE}}#959ec2{{end}}",
             "{{if contains \"R\" .Env.POSH_VI_MODE}}p:blue{{end}}"
