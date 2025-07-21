@@ -60,9 +60,9 @@
           "properties": {
             "style": "agnoster_short",
             "cache_duration": "none",
-            "home_icon": "\uf4e2",
+            "home_icon": "\uf4e2 ",
             "folder_icon": "..\ue5fe..",
-            "folder_separator_icon": "  "
+            "folder_separator_icon": ""
           }
         },
         {
