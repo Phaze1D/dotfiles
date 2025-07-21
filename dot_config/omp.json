@@ -86,6 +86,29 @@
             "fetch_stash_count": true,
             "fetch_upstream_icon": true
           }
+        },
+        {
+          "type": "node",
+          "style": "diamond",
+          "leading_diamond": "<#959ec2,p:main_background>—</>\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "foreground": "p:tertiary_background",
+          "background": "#80bd02",
+          "max_width": 87,
+          "template": "  {{ .Full }} "
+        },
+        {
+          "type": "flutter",
+          "style": "diamond",
+          "leading_diamond": "<#959ec2,p:main_background>—</>\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "foreground": "p:tertiary_background",
+          "background": "#06A4CE",
+          "max_width": 87,
+          "template": "  {{ .Full }} ",
+          "properties": {
+            "cache_duration": "15m"
+          }
         }
       ]
     },
@@ -101,6 +124,7 @@
           "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
           "foreground": "p:tertiary_background",
           "background": "#80bd02",
+          "min_width": 88,
           "template": "  {{ .Full }} "
         },
         {
@@ -110,6 +134,7 @@
           "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
           "foreground": "p:tertiary_background",
           "background": "#06A4CE",
+          "min_width": 88,
           "template": "  {{ .Full }} ",
           "properties": {
             "cache_duration": "15m"
@@ -122,11 +147,147 @@
           "trailing_diamond": "\ue0b4<#959ec2,p:main_background>\u2500\u256e</>",
           "foreground": "p:tertiary_background",
           "background": "p:cpink",
+          "min_width": 88,
           "template": " \udb81\udd9f {{ if .Output }}{{ .Output }}{{ else }}No IP{{ end }} ",
           "properties": {
             "shell": "bash",
             "command": "ifconfig $(route get default 2>/dev/null | grep interface | awk '{print $2}') 2>/dev/null | grep \"inet \" | awk '{print $2}' | head -1",
             "cache_duration": "15m"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "command",
+          "style": "diamond",
+          "max_width": 87,
+          "leading_diamond": "<#959ec2,p:main_background>\u251c\u2500</>\ue0b6",
+          "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
+          "foreground": "p:tertiary_background",
+          "background": "p:cpink",
+          "template": " \udb81\udd9f {{ if .Output }}{{ .Output }}{{ else }}No IP{{ end }} ",
+          "properties": {
+            "shell": "bash",
+            "command": "ifconfig $(route get default 2>/dev/null | grep interface | awk '{print $2}') 2>/dev/null | grep \"inet \" | awk '{print $2}' | head -1",
+            "cache_duration": "15m"
+          }
+        },
+        {
+          "type": "sysinfo",
+          "style": "diamond",
+          "max_width": 87,
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
+          "foreground": "p:tertiary_background",
+          "background": "p:lavender",
+          "template": "  {{ round .PhysicalPercentUsed .Precision }}% ",
+          "properties": {
+            "precision": 2
+          }
+        },
+        {
+          "type": "sysinfo",
+          "style": "diamond",
+          "max_width": 87,
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
+          "foreground": "p:tertiary_background",
+          "background": "p:green",
+          "background_templates": [
+            "{{ if gt .Load1 6.0 }}p:red{{ end }}",
+            "{{ if and (gt .Load1 4.0) (le .Load1 6.0) }}p:peach{{ end }}",
+            "{{ if and (gt .Load1 2.0) (le .Load1 4.0) }}p:yellow{{ end }}",
+            "{{ if and (gt .Load1 1.0) (le .Load1 2.0) }}p:green{{ end }}"
+          ],
+          "template": "  {{ round .Load1 .Precision }} ",
+          "properties": {
+            "precision": 2
+          }
+        },
+        {
+          "type": "battery",
+          "style": "diamond",
+          "max_width": 87,
+          "foreground": "p:tertiary_background",
+          "background": "p:main_background",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "background_templates": [
+            "{{if eq \"Charging\" .State.String}}p:green{{end}}",
+            "{{if lt .Percentage 10}}p:error{{end}}",
+            "{{if lt .Percentage 39}}p:red{{end}}",
+            "{{if lt .Percentage 59}}p:yellow{{end}}",
+            "{{if lt .Percentage 79}}p:lightteal{{end}}",
+            "{{if lt .Percentage 101}}p:green{{end}}"
+          ],
+          "template": " {{ if not .Error }}{{if eq \"Charging\" .State.String}}\udb80\udc84{{- else if lt .Percentage 10 }}\udb80\udc83{{- else if lt .Percentage 39 }}\udb80\udc7b{{- else if lt .Percentage 59 }}\udb80\udc7d{{- else if lt .Percentage 79 }}\udb80\udc7f{{- else if lt .Percentage 98 }}\udb80\udc81{{- else }}\udb80\udc79{{- end }} {{ .Percentage }}% {{ end }}",
+          "properties": {
+            "cache_duration": "none"
+          }
+        }
+      ]
+    },
+    {
+      "type": "rprompt",
+      "alignment": "right",
+      "newline": false,
+      "segments": [
+        {
+          "type": "sysinfo",
+          "style": "diamond",
+          "min_width": 88,
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
+          "foreground": "p:tertiary_background",
+          "background": "p:lavender",
+          "template": "  {{ round .PhysicalPercentUsed .Precision }}% ",
+          "properties": {
+            "precision": 2
+          }
+        },
+        {
+          "type": "sysinfo",
+          "style": "diamond",
+          "min_width": 88,
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
+          "foreground": "p:tertiary_background",
+          "background": "p:green",
+          "background_templates": [
+            "{{ if gt .Load1 6.0 }}p:red{{ end }}",
+            "{{ if and (gt .Load1 4.0) (le .Load1 6.0) }}p:peach{{ end }}",
+            "{{ if and (gt .Load1 2.0) (le .Load1 4.0) }}p:yellow{{ end }}",
+            "{{ if and (gt .Load1 1.0) (le .Load1 2.0) }}p:green{{ end }}"
+          ],
+          "template": "  {{ round .Load1 .Precision }} ",
+          "properties": {
+            "precision": 2
+          }
+        },
+        {
+          "type": "battery",
+          "style": "diamond",
+          "min_width": 88,
+          "foreground": "p:tertiary_background",
+          "background": "p:main_background",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4<#959ec2,p:main_background>\u2500\u256f</>",
+          "background_templates": [
+            "{{if eq \"Charging\" .State.String}}p:green{{end}}",
+            "{{if lt .Percentage 10}}p:error{{end}}",
+            "{{if lt .Percentage 39}}p:red{{end}}",
+            "{{if lt .Percentage 59}}p:yellow{{end}}",
+            "{{if lt .Percentage 79}}p:lightteal{{end}}",
+            "{{if lt .Percentage 101}}p:green{{end}}"
+          ],
+          "template": " {{ if not .Error }}{{if eq \"Charging\" .State.String}}\udb80\udc84{{- else if lt .Percentage 10 }}\udb80\udc83{{- else if lt .Percentage 39 }}\udb80\udc7b{{- else if lt .Percentage 59 }}\udb80\udc7d{{- else if lt .Percentage 79 }}\udb80\udc7f{{- else if lt .Percentage 98 }}\udb80\udc81{{- else }}\udb80\udc79{{- end }} {{ .Percentage }}% {{ end }}",
+          "properties": {
+            "cache_duration": "none"
           }
         }
       ]
@@ -150,63 +311,6 @@
             "{{if contains \"V\" .Env.POSH_VI_MODE}}<p:blue></>{{end}}",
             "{{if contains \"R\" .Env.POSH_VI_MODE}}<p:peach></>{{end}}"
           ]
-        }
-      ]
-    },
-    {
-      "type": "rprompt",
-      "alignment": "right",
-      "newline": false,
-      "segments": [
-        {
-          "type": "sysinfo",
-          "style": "diamond",
-          "leading_diamond": "\ue0b6",
-          "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
-          "foreground": "p:tertiary_background",
-          "background": "p:lavender",
-          "template": "  {{ round .PhysicalPercentUsed .Precision }}% ",
-          "properties": {
-            "precision": 2
-          }
-        },
-        {
-          "type": "sysinfo",
-          "style": "diamond",
-          "leading_diamond": "\ue0b6",
-          "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
-          "foreground": "p:tertiary_background",
-          "background": "p:green",
-          "background_templates": [
-            "{{ if gt .Load1 6.0 }}p:red{{ end }}",
-            "{{ if and (gt .Load1 4.0) (le .Load1 6.0) }}p:peach{{ end }}",
-            "{{ if and (gt .Load1 2.0) (le .Load1 4.0) }}p:yellow{{ end }}",
-            "{{ if and (gt .Load1 1.0) (le .Load1 2.0) }}p:green{{ end }}"
-          ],
-          "template": "  {{ round .Load1 .Precision }} ",
-          "properties": {
-            "precision": 2
-          }
-        },
-        {
-          "type": "battery",
-          "style": "diamond",
-          "foreground": "p:tertiary_background",
-          "background": "p:main_background",
-          "leading_diamond": "\ue0b6",
-          "trailing_diamond": "\ue0b4<#959ec2,p:main_background>\u2500\u256f</>",
-          "background_templates": [
-            "{{if eq \"Charging\" .State.String}}p:green{{end}}",
-            "{{if lt .Percentage 10}}p:error{{end}}",
-            "{{if lt .Percentage 39}}p:red{{end}}",
-            "{{if lt .Percentage 59}}p:yellow{{end}}",
-            "{{if lt .Percentage 79}}p:lightteal{{end}}",
-            "{{if lt .Percentage 101}}p:green{{end}}"
-          ],
-          "template": " {{ if not .Error }}{{if eq \"Charging\" .State.String}}\udb80\udc84{{- else if lt .Percentage 10 }}\udb80\udc83{{- else if lt .Percentage 39 }}\udb80\udc7b{{- else if lt .Percentage 59 }}\udb80\udc7d{{- else if lt .Percentage 79 }}\udb80\udc7f{{- else if lt .Percentage 98 }}\udb80\udc81{{- else }}\udb80\udc79{{- end }} {{ .Percentage }}% {{ end }}",
-          "properties": {
-            "cache_duration": "none"
-          }
         }
       ]
     }
