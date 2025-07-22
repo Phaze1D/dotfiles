@@ -229,7 +229,7 @@
             "{{if lt .Percentage 70}} 󰂀 {{.Percentage}}% {{end}}",
             "{{if lt .Percentage 80}} 󰂁 {{.Percentage}}% {{end}}",
             "{{if lt .Percentage 90}} 󰂂 {{.Percentage}}% {{end}}",
-            "{{if lt .Percentage 100}} 󰁹 {{.Percentage}}% {{end}}"
+            "{{if lt .Percentage 101}} 󰁹 {{.Percentage}}% {{end}}"
           ],
           "background_templates": [
             "{{if eq \"Charging\" .State.String}}p:green{{end}}",
@@ -242,7 +242,7 @@
             "{{if lt .Percentage 70}}p:lavender{{end}}",
             "{{if lt .Percentage 80}}p:green{{end}}",
             "{{if lt .Percentage 90}}p:green{{end}}",
-            "{{if lt .Percentage 100}}p:green{{end}}"
+            "{{if lt .Percentage 101}}p:green{{end}}"
           ],
           "properties": {
             "cache_duration": "none"
@@ -307,7 +307,7 @@
             "{{if lt .Percentage 70}} 󰂀 {{.Percentage}}% {{end}}",
             "{{if lt .Percentage 80}} 󰂁 {{.Percentage}}% {{end}}",
             "{{if lt .Percentage 90}} 󰂂 {{.Percentage}}% {{end}}",
-            "{{if lt .Percentage 100}} 󰁹 {{.Percentage}}% {{end}}"
+            "{{if lt .Percentage 101}} 󰁹 {{.Percentage}}% {{end}}"
           ],
           "background_templates": [
             "{{if eq \"Charging\" .State.String}}p:green{{end}}",
@@ -320,7 +320,7 @@
             "{{if lt .Percentage 70}}p:lavender{{end}}",
             "{{if lt .Percentage 80}}p:green{{end}}",
             "{{if lt .Percentage 90}}p:green{{end}}",
-            "{{if lt .Percentage 100}}p:green{{end}}"
+            "{{if lt .Percentage 101}}p:green{{end}}"
           ],
           "properties": {
             "cache_duration": "none"
