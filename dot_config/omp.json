@@ -219,7 +219,7 @@
           "trailing_diamond": "\ue0b4",
           "templates_logic": "first_match",
           "templates": [
-            "{{if eq \"Charging\" .State.String}}\udb80\udc84{{end}}",
+            "{{if eq \"Charging\" .State.String}} \udb80\udc84 {{.Percentage}}% {{end}}",
             "{{if lt .Percentage 10}} 󰁺 {{.Percentage}}% {{end}}",
             "{{if lt .Percentage 20}} 󰁻 {{.Percentage}}% {{end}}",
             "{{if lt .Percentage 30}} 󰁼 {{.Percentage}}% {{end}}",
@@ -297,7 +297,7 @@
           "trailing_diamond": "\ue0b4<#959ec2,p:main_background>\u2500\u256f</>",
           "templates_logic": "first_match",
           "templates": [
-            "{{if eq \"Charging\" .State.String}}\udb80\udc84{{end}}",
+            "{{if eq \"Charging\" .State.String}} \udb80\udc84 {{.Percentage}}% {{end}}",
             "{{if lt .Percentage 10}} 󰁺 {{.Percentage}}% {{end}}",
             "{{if lt .Percentage 20}} 󰁻 {{.Percentage}}% {{end}}",
             "{{if lt .Percentage 30}} 󰁼 {{.Percentage}}% {{end}}",
