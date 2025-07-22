@@ -217,15 +217,33 @@
           "background": "p:main_background",
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4",
+          "templates_logic": "first_match",
+          "templates": [
+            "{{if eq \"Charging\" .State.String}}\udb80\udc84{{end}}",
+            "{{if lt .Percentage 10}} 󰁺 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 20}} 󰁻 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 30}} 󰁼 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 40}} 󰁽 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 50}} 󰁾 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 60}} 󰁿 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 70}} 󰂀 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 80}} 󰂁 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 90}} 󰂂 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 100}} 󰁹 {{.Percentage}}% {{end}}"
+          ],
           "background_templates": [
             "{{if eq \"Charging\" .State.String}}p:green{{end}}",
-            "{{if lt .Percentage 10}}p:error{{end}}",
-            "{{if lt .Percentage 39}}p:red{{end}}",
-            "{{if lt .Percentage 59}}p:yellow{{end}}",
-            "{{if lt .Percentage 79}}p:lightteal{{end}}",
-            "{{if lt .Percentage 101}}p:green{{end}}"
+            "{{if lt .Percentage 10}}p:red{{end}}",
+            "{{if lt .Percentage 20}}p:red{{end}}",
+            "{{if lt .Percentage 30}}p:peach{{end}}",
+            "{{if lt .Percentage 40}}p:peach{{end}}",
+            "{{if lt .Percentage 50}}p:lavendar{{end}}",
+            "{{if lt .Percentage 60}}p:lavendar{{end}}",
+            "{{if lt .Percentage 70}}p:lavender{{end}}",
+            "{{if lt .Percentage 80}}p:green{{end}}",
+            "{{if lt .Percentage 90}}p:green{{end}}",
+            "{{if lt .Percentage 100}}p:green{{end}}"
           ],
-          "template": " {{ if not .Error }}{{if eq \"Charging\" .State.String}}\udb80\udc84{{- else if lt .Percentage 10 }}\udb80\udc83{{- else if lt .Percentage 39 }}\udb80\udc7b{{- else if lt .Percentage 59 }}\udb80\udc7d{{- else if lt .Percentage 79 }}\udb80\udc7f{{- else if lt .Percentage 98 }}\udb80\udc81{{- else }}\udb80\udc79{{- end }} {{ .Percentage }}% {{ end }}",
           "properties": {
             "cache_duration": "none"
           }
@@ -277,15 +295,33 @@
           "background": "p:main_background",
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4<#959ec2,p:main_background>\u2500\u256f</>",
+          "templates_logic": "first_match",
+          "templates": [
+            "{{if eq \"Charging\" .State.String}}\udb80\udc84{{end}}",
+            "{{if lt .Percentage 10}} 󰁺 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 20}} 󰁻 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 30}} 󰁼 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 40}} 󰁽 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 50}} 󰁾 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 60}} 󰁿 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 70}} 󰂀 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 80}} 󰂁 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 90}} 󰂂 {{.Percentage}}% {{end}}",
+            "{{if lt .Percentage 100}} 󰁹 {{.Percentage}}% {{end}}"
+          ],
           "background_templates": [
             "{{if eq \"Charging\" .State.String}}p:green{{end}}",
-            "{{if lt .Percentage 10}}p:error{{end}}",
-            "{{if lt .Percentage 39}}p:red{{end}}",
-            "{{if lt .Percentage 59}}p:yellow{{end}}",
-            "{{if lt .Percentage 79}}p:lightteal{{end}}",
-            "{{if lt .Percentage 101}}p:green{{end}}"
+            "{{if lt .Percentage 10}}p:red{{end}}",
+            "{{if lt .Percentage 20}}p:red{{end}}",
+            "{{if lt .Percentage 30}}p:peach{{end}}",
+            "{{if lt .Percentage 40}}p:peach{{end}}",
+            "{{if lt .Percentage 50}}p:lavendar{{end}}",
+            "{{if lt .Percentage 60}}p:lavendar{{end}}",
+            "{{if lt .Percentage 70}}p:lavender{{end}}",
+            "{{if lt .Percentage 80}}p:green{{end}}",
+            "{{if lt .Percentage 90}}p:green{{end}}",
+            "{{if lt .Percentage 100}}p:green{{end}}"
           ],
-          "template": " {{ if not .Error }}{{if eq \"Charging\" .State.String}}\udb80\udc84{{- else if lt .Percentage 10 }}\udb80\udc83{{- else if lt .Percentage 39 }}\udb80\udc7b{{- else if lt .Percentage 59 }}\udb80\udc7d{{- else if lt .Percentage 79 }}\udb80\udc7f{{- else if lt .Percentage 98 }}\udb80\udc81{{- else }}\udb80\udc79{{- end }} {{ .Percentage }}% {{ end }}",
           "properties": {
             "cache_duration": "none"
           }
@@ -305,6 +341,7 @@
         {
           "type": "text",
           "style": "plain",
+          "templates_logic": "first_match",
           "templates": [
             "{{if contains \"N\" .Env.POSH_VI_MODE}}<p:red></>{{end}}",
             "{{if contains \"I\" .Env.POSH_VI_MODE}}<p:green></>{{end}}",
