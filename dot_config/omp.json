@@ -58,11 +58,11 @@
           "background": "p:bluegray",
           "template": " {{ .Path }} ",
           "properties": {
-            "style": "agnoster_short",
+            "style": "agnoster",
             "cache_duration": "none",
-            "home_icon": "\uf4e2 ",
-            "folder_icon": "..\ue5fe..",
-            "folder_separator_icon": ""
+            "home_icon": "\uf4e2",
+            "folder_icon": "",
+            "folder_separator_icon": " "
           }
         },
         {
