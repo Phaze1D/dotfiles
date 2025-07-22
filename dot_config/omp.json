@@ -54,8 +54,8 @@
           "style": "diamond",
           "leading_diamond": "<#959ec2,p:main_background>—</>\ue0b6",
           "trailing_diamond": "\ue0b4",
-          "background": "p:bluegray",
-          "foreground": "p:tertiary_background",
+          "foreground": "p:bluegray",
+          "background": "p:tertiary_background",
           "template": " {{ .Path }} ",
           "properties": {
             "style": "agnoster_short",
@@ -70,9 +70,9 @@
           "style": "diamond",
           "leading_diamond": "<#959ec2,p:main_background>—</>\ue0b6",
           "trailing_diamond": "\ue0b4",
-          "foreground": "p:secondary_background",
-          "background": "p:blue",
-          "background_templates": [
+          "background": "p:secondary_background",
+          "foreground": "p:blue",
+          "foreground_templates": [
             "{{ if or (.Working.Changed) (.Staging.Changed) }}p:peach{{ end }}",
             "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:yellow{{ end }}",
             "{{ if gt .Ahead 0 }}p:mauve{{ end }}",
@@ -92,8 +92,8 @@
           "style": "diamond",
           "leading_diamond": "<#959ec2,p:main_background>—</>\ue0b6",
           "trailing_diamond": "\ue0b4",
-          "foreground": "p:tertiary_background",
-          "background": "#80bd02",
+          "background": "p:tertiary_background",
+          "foreground": "#80bd02",
           "max_width": 87,
           "template": "  {{ .Full }} "
         },
@@ -102,8 +102,8 @@
           "style": "diamond",
           "leading_diamond": "<#959ec2,p:main_background>—</>\ue0b6",
           "trailing_diamond": "\ue0b4",
-          "foreground": "p:tertiary_background",
-          "background": "#06A4CE",
+          "background": "p:tertiary_background",
+          "foreground": "#06A4CE",
           "max_width": 87,
           "template": "  {{ .Full }} ",
           "properties": {
@@ -122,8 +122,8 @@
           "style": "diamond",
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
-          "foreground": "p:tertiary_background",
-          "background": "#80bd02",
+          "background": "p:tertiary_background",
+          "foreground": "#80bd02",
           "min_width": 88,
           "template": "  {{ .Full }} "
         },
@@ -132,8 +132,8 @@
           "style": "diamond",
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
-          "foreground": "p:tertiary_background",
-          "background": "#06A4CE",
+          "background": "p:tertiary_background",
+          "foreground": "#06A4CE",
           "min_width": 88,
           "template": "  {{ .Full }} ",
           "properties": {
@@ -145,8 +145,8 @@
           "style": "diamond",
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4<#959ec2,p:main_background>\u2500\u256e</>",
-          "foreground": "p:tertiary_background",
-          "background": "p:cpink",
+          "background": "p:tertiary_background",
+          "foreground": "p:cpink",
           "min_width": 88,
           "template": " \udb81\udd9f {{ if .Output }}{{ .Output }}{{ else }}No IP{{ end }} ",
           "properties": {
@@ -168,8 +168,8 @@
           "max_width": 87,
           "leading_diamond": "<#959ec2,p:main_background>\u251c\u2500</>\ue0b6",
           "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
-          "foreground": "p:tertiary_background",
-          "background": "p:cpink",
+          "background": "p:tertiary_background",
+          "foreground": "p:cpink",
           "template": " \udb81\udd9f {{ if .Output }}{{ .Output }}{{ else }}No IP{{ end }} ",
           "properties": {
             "shell": "bash",
@@ -183,8 +183,8 @@
           "max_width": 87,
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
-          "foreground": "p:tertiary_background",
-          "background": "p:lavender",
+          "background": "p:tertiary_background",
+          "foreground": "p:lavender",
           "template": "  {{ round .PhysicalPercentUsed .Precision }}% ",
           "properties": {
             "precision": 2
@@ -196,9 +196,9 @@
           "max_width": 87,
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
-          "foreground": "p:tertiary_background",
-          "background": "p:green",
-          "background_templates": [
+          "background": "p:tertiary_background",
+          "foreground": "p:green",
+          "foreground_templates": [
             "{{ if gt .Load1 6.0 }}p:red{{ end }}",
             "{{ if and (gt .Load1 4.0) (le .Load1 6.0) }}p:peach{{ end }}",
             "{{ if and (gt .Load1 2.0) (le .Load1 4.0) }}p:yellow{{ end }}",
@@ -213,8 +213,8 @@
           "type": "battery",
           "style": "diamond",
           "max_width": 87,
-          "foreground": "p:tertiary_background",
-          "background": "p:main_background",
+          "background": "p:tertiary_background",
+          "foreground": "p:main_background",
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4",
           "templates_logic": "first_match",
@@ -231,7 +231,7 @@
             "{{if lt .Percentage 90}} 󰂂 {{.Percentage}}% {{end}}",
             "{{if lt .Percentage 100}} 󰁹 {{.Percentage}}% {{end}}"
           ],
-          "background_templates": [
+          "foreground_templates": [
             "{{if eq \"Charging\" .State.String}}p:green{{end}}",
             "{{if lt .Percentage 10}}p:red{{end}}",
             "{{if lt .Percentage 20}}p:red{{end}}",
@@ -261,8 +261,8 @@
           "min_width": 88,
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
-          "foreground": "p:tertiary_background",
-          "background": "p:lavender",
+          "background": "p:tertiary_background",
+          "foreground": "p:lavender",
           "template": "  {{ round .PhysicalPercentUsed .Precision }}% ",
           "properties": {
             "precision": 2
@@ -274,9 +274,9 @@
           "min_width": 88,
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
-          "foreground": "p:tertiary_background",
-          "background": "p:green",
-          "background_templates": [
+          "background": "p:tertiary_background",
+          "foreground": "p:green",
+          "foreground_templates": [
             "{{ if gt .Load1 6.0 }}p:red{{ end }}",
             "{{ if and (gt .Load1 4.0) (le .Load1 6.0) }}p:peach{{ end }}",
             "{{ if and (gt .Load1 2.0) (le .Load1 4.0) }}p:yellow{{ end }}",
@@ -291,8 +291,8 @@
           "type": "battery",
           "style": "diamond",
           "min_width": 88,
-          "foreground": "p:tertiary_background",
-          "background": "p:main_background",
+          "background": "p:tertiary_background",
+          "foreground": "p:main_background",
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4<#959ec2,p:main_background>\u2500\u256f</>",
           "templates_logic": "first_match",
@@ -309,7 +309,7 @@
             "{{if lt .Percentage 90}} 󰂂 {{.Percentage}}% {{end}}",
             "{{if lt .Percentage 100}} 󰁹 {{.Percentage}}% {{end}}"
           ],
-          "background_templates": [
+          "foreground_templates": [
             "{{if eq \"Charging\" .State.String}}p:green{{end}}",
             "{{if lt .Percentage 10}}p:red{{end}}",
             "{{if lt .Percentage 20}}p:red{{end}}",
