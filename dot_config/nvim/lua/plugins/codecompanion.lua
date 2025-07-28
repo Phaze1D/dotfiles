@@ -21,6 +21,15 @@ local M = {
       end,
     },
     display = {
+      action_palette = {
+        width = 95,
+        height = 10,
+        provider = "snacks",
+        opts = {
+          show_default_actions = true,
+          show_default_prompt_library = true,
+        },
+      },
       diff = {
         provider = "mini_diff", -- default|mini_diff
       },
