@@ -20,6 +20,7 @@ return {
         },
         explorer = {
           hidden = true,
+          layout = { preset = "sidebar", layout = { position = "right" } },
         },
       },
     },
