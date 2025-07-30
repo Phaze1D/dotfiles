@@ -52,7 +52,7 @@ local M = {
       silent = true
     })
 
-    vim.cmd([[cab cc CodeCompanion #{buffer} /commit]])
+    vim.cmd([[cab cc CodeCompanion #{buffer} write a commit message]])
 
     vim.g.copilot_no_tab_map = true
   end
