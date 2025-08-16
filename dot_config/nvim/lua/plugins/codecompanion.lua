@@ -52,6 +52,7 @@ local M = {
       silent = true
     })
 
+    -- Testing the commit message feature
     vim.cmd([[cab cc CodeCompanion #{buffer} write a commit message]])
 
     vim.g.copilot_no_tab_map = true
