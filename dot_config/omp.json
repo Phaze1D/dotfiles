@@ -47,7 +47,7 @@
           "foreground": "p:brightgray",
           "leading_diamond": "<#959ec2,p:main_background>\u256d\u2500</>\ue0b6",
           "trailing_diamond": "\ue0b4",
-          "template": " {{.Icon}} "
+          "template": "{{.Icon}} "
         },
         {
           "type": "path",
@@ -56,7 +56,7 @@
           "trailing_diamond": "\ue0b4",
           "foreground": "p:tertiary_background",
           "background": "p:bluegray",
-          "template": " {{ .Path }} ",
+          "template": "{{ .Path }} ",
           "properties": {
             "style": "agnoster",
             "cache_duration": "none",
