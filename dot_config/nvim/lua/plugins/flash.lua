@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
   opts = {
     jump = {
-      autojump = true,
+      autojump = false,
     },
     modes = {
       search = {
