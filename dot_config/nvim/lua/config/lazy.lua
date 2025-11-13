@@ -25,6 +25,7 @@ vim.opt.number = true
 vim.opt.splitright = true
 vim.opt.termguicolors = true
 vim.opt.signcolumn = 'yes'
+vim.wo.relativenumber = true
 
 local o = vim.o
 o.expandtab = true
