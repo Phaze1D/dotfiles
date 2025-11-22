@@ -107,7 +107,7 @@
           "max_width": 87,
           "template": "  {{ .Full }} ",
           "properties": {
-            "cache_duration": "15m"
+            "cache_duration": "1h2m3s"
           }
         }
       ]
@@ -137,7 +137,7 @@
           "min_width": 88,
           "template": "  {{ .Full }} ",
           "properties": {
-            "cache_duration": "15m"
+            "cache_duration": "1h2m3s"
           }
         },
         {
