@@ -1,6 +1,7 @@
 local M = {
   "olimorris/codecompanion.nvim",
   event = "VeryLazy",
+  version = "v17.33.0",
   opts = {
     adapters = {
       http = {
