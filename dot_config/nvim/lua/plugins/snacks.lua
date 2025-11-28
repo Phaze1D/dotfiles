@@ -23,6 +23,24 @@ return {
           layout = { preset = "sidebar", layout = { position = "right" } },
         },
       },
+      win = {
+        input = {
+          keys = {
+            ["<C-l>"] = { "focus_preview", mode = { "i", "n" } },
+          },
+        },
+        list = {
+          keys = {
+            ["<C-l>"] = { "focus_preview", mode = { "i", "n" } },
+          },
+        },
+
+        preview = {
+          keys = {
+            ["<C-h>"] = { "focus_input", mode = { "i", "n" } },
+          },
+        },
+      },
     },
     explorer = {
       enable = true,
