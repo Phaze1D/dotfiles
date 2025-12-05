@@ -31,17 +31,15 @@ return {
     servers = {
       lua_ls = {},
       sqlls = {},
-      ts_ls = require('utils.lsp.ts'),
-      eslint = require('utils.lsp.eslint'),
-      marksman = require('utils.lsp.marksman'),
+      ts_ls = {},
+      eslint = {},
+      marksman = {},
       jsonls = {},
-      graphql = require('utils.lsp.graphql'),
+      graphql = {},
       prismals = {},
       dockerls = {},
-      docker_compose_language_service = {
-      },
-      yamlls = {
-      },
+      docker_compose_language_service = {},
+      yamlls = {},
     }
   },
   config = function(_, opts)
