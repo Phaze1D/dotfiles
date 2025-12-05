@@ -193,6 +193,10 @@ function zvm_after_select_vi_mode() {
 # Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
 # Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
 #
+#
+function set_poshcontext() {
+    export POSH_LOCAL_IP=$(ifconfig $(route get default 2>/dev/null | grep interface | awk '{print $2}') 2>/dev/null | grep "inet " | awk '{print $2}' | head -1)
+}
 
 if type complete &>/dev/null; then
   _npm_completion () {

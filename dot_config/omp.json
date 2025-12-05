@@ -141,17 +141,15 @@
           }
         },
         {
-          "type": "command",
+          "type": "text",
           "style": "diamond",
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4<#959ec2,p:main_background>\u2500\u256e</>",
           "foreground": "p:tertiary_background",
           "background": "p:cpink",
           "min_width": 88,
-          "template": " \udb81\udd9f {{ if .Output }}{{ .Output }}{{ else }}No IP{{ end }} ",
+          "template": " \udb81\udd9f {{ if .Env.POSH_LOCAL_IP }}{{ .Env.POSH_LOCAL_IP }}{{ else }}No IP{{ end }} ",
           "properties": {
-            "shell": "bash",
-            "command": "ifconfig $(route get default 2>/dev/null | grep interface | awk '{print $2}') 2>/dev/null | grep \"inet \" | awk '{print $2}' | head -1",
             "cache_duration": "15m"
           }
         }
@@ -163,17 +161,15 @@
       "newline": true,
       "segments": [
         {
-          "type": "command",
+          "type": "text",
           "style": "diamond",
           "max_width": 87,
           "leading_diamond": "<#959ec2,p:main_background>\u251c\u2500</>\ue0b6",
           "trailing_diamond": "\ue0b4<#959ec2,p:main_background>—</>",
           "foreground": "p:tertiary_background",
           "background": "p:cpink",
-          "template": " \udb81\udd9f {{ if .Output }}{{ .Output }}{{ else }}No IP{{ end }} ",
+          "template": " \udb81\udd9f {{ if .Env.POSH_LOCAL_IP }}{{ .Env.POSH_LOCAL_IP }}{{ else }}No IP{{ end }} ",
           "properties": {
-            "shell": "bash",
-            "command": "ifconfig $(route get default 2>/dev/null | grep interface | awk '{print $2}') 2>/dev/null | grep \"inet \" | awk '{print $2}' | head -1",
             "cache_duration": "15m"
           }
         },
