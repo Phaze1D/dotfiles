@@ -115,7 +115,7 @@
     {
       "type": "prompt",
       "alignment": "right",
-      "filler": "{{ if .Overflow }} {{ else }}<#959ec2>─</>{{ end }}",
+      "filler": "{{ if .Overflow }} {{ else }}<#959ec2>·</>{{ end }}",
       "segments": [
         {
           "type": "node",
