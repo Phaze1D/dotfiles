@@ -57,9 +57,8 @@
           "foreground": "p:tertiary_background",
           "background": "p:bluegray",
           "template": " {{ .Path }} ",
-          "properties": {
+          "options": {
             "style": "agnoster",
-            "cache_duration": "none",
             "home_icon": "\uf4e2",
             "folder_icon": "",
             "folder_separator_icon": " "
@@ -79,11 +78,9 @@
             "{{ if gt .Behind 0 }}p:mauve{{ end }}"
           ],
           "template": " {{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044{{ end }}{{ if .Staging.Changed }} \uf046{{ end }}{{ if gt .StashCount 0 }} \ueb4b{{ end }} ",
-          "properties": {
+          "options": {
             "branch_icon": " ",
-            "branch_max_length": 20,
             "fetch_status": true,
-            "fetch_stash_count": true,
             "fetch_upstream_icon": true
           }
         },
@@ -106,7 +103,7 @@
           "background": "#06A4CE",
           "max_width": 87,
           "template": "  {{ .Full }} ",
-          "properties": {
+          "options": {
             "cache_duration": "1h2m3s"
           }
         }
@@ -136,7 +133,7 @@
           "background": "#06A4CE",
           "min_width": 88,
           "template": "  {{ .Full }} ",
-          "properties": {
+          "options": {
             "cache_duration": "1h2m3s"
           }
         },
@@ -149,7 +146,7 @@
           "background": "p:cpink",
           "min_width": 88,
           "template": " \udb81\udd9f {{ if .Env.POSH_LOCAL_IP }}{{ .Env.POSH_LOCAL_IP }}{{ else }}No IP{{ end }} ",
-          "properties": {
+          "options": {
             "cache_duration": "15m"
           }
         }
@@ -169,7 +166,7 @@
           "foreground": "p:tertiary_background",
           "background": "p:cpink",
           "template": " \udb81\udd9f {{ if .Env.POSH_LOCAL_IP }}{{ .Env.POSH_LOCAL_IP }}{{ else }}No IP{{ end }} ",
-          "properties": {
+          "options": {
             "cache_duration": "15m"
           }
         },
@@ -182,7 +179,7 @@
           "foreground": "p:tertiary_background",
           "background": "p:lavender",
           "template": "  {{ round .PhysicalPercentUsed .Precision }}% ",
-          "properties": {
+          "options": {
             "precision": 2
           }
         },
@@ -201,7 +198,7 @@
             "{{ if and (gt .Load1 1.0) (le .Load1 2.0) }}p:green{{ end }}"
           ],
           "template": "  {{ round .Load1 .Precision }} ",
-          "properties": {
+          "options": {
             "precision": 2
           }
         },
@@ -239,10 +236,7 @@
             "{{if lt .Percentage 80}}p:green{{end}}",
             "{{if lt .Percentage 90}}p:green{{end}}",
             "{{if lt .Percentage 101}}p:green{{end}}"
-          ],
-          "properties": {
-            "cache_duration": "none"
-          }
+          ]
         }
       ]
     },
@@ -260,7 +254,7 @@
           "foreground": "p:tertiary_background",
           "background": "p:lavender",
           "template": "  {{ round .PhysicalPercentUsed .Precision }}% ",
-          "properties": {
+          "options": {
             "precision": 2
           }
         },
@@ -279,7 +273,7 @@
             "{{ if and (gt .Load1 1.0) (le .Load1 2.0) }}p:green{{ end }}"
           ],
           "template": "  {{ round .Load1 .Precision }} ",
-          "properties": {
+          "options": {
             "precision": 2
           }
         },
@@ -317,10 +311,7 @@
             "{{if lt .Percentage 80}}p:green{{end}}",
             "{{if lt .Percentage 90}}p:green{{end}}",
             "{{if lt .Percentage 101}}p:green{{end}}"
-          ],
-          "properties": {
-            "cache_duration": "none"
-          }
+          ]
         }
       ]
     },
