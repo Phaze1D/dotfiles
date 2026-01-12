@@ -134,18 +134,18 @@ else
   export EDITOR='nvim'
 fi
 
-# OMP zsh-vi-mode integration
 _omp_redraw-prompt() {
   local precmd
-  for precmd in "${precmd_functions[@]}"; do
-    "$precmd"
+  for precmd in $precmd_functions; do
+    $precmd
   done
 
   zle .reset-prompt
 }
 
-export POSH_VI_MODE="I"
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 
+export POSH_VI_MODE="I"
 function zvm_after_select_vi_mode() {
   case $ZVM_MODE in
   $ZVM_MODE_NORMAL)
