@@ -15,7 +15,7 @@ local M = {
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
               model = {
-                default = "claude-sonnet-4.6",
+                default = "gemini-3.1-pro-preview",
               },
             },
           })
