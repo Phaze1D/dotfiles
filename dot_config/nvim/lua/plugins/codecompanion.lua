@@ -27,6 +27,9 @@ local M = {
         ["flutter-mcp"] = {
           cmd = { "dart", "mcp-server" },
         },
+        ["context7-mcp"] = {
+          cmd = { "npx", "-y", "@upstash/context7-mcp", "--api-key", "ctx7sk-5be9ce70-d7a9-4a69-8b50-50ac6e2b85ee" },
+        },
       },
     },
     display = {
