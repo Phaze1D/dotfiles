@@ -15,12 +15,19 @@ local M = {
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
               model = {
-                default = "gemini-3.1-pro-preview",
+                default = "claude-sonnet-4.6",
               },
             },
           })
         end,
       }
+    },
+    mcp = {
+      servers = {
+        ["flutter-mcp"] = {
+          cmd = { "dart", "mcp-server" },
+        },
+      },
     },
     display = {
       action_palette = {
