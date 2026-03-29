@@ -1,5 +1,6 @@
 local M = {
   "olimorris/codecompanion.nvim",
+  version = "v19.7.0",
   event = "VeryLazy",
   opts = {
     adapters = {
