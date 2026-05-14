@@ -15,7 +15,7 @@ compinit
 _comp_options+=(globdots)
 
 alias tf='cd ~/Projects/tribys/'
-alias sb='cd ~/Projects/spot_q_back/'
+alias tb='cd ~/Projects/tribys_back/'
 alias config='cd ~/.local/share/chezmoi/'
 alias vim='nvim'
 
