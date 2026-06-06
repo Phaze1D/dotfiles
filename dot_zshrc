@@ -16,6 +16,7 @@ _comp_options+=(globdots)
 
 alias tf='cd ~/Projects/tribys/'
 alias tb='cd ~/Projects/tribys_back/'
+alias ti='cd ~/Projects/tribys_infra/'
 alias config='cd ~/.local/share/chezmoi/'
 alias vim='nvim'
 
